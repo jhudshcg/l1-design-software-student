@@ -1,4 +1,6 @@
-# Canteen Ordering System — Level 1 Digital Skills
+# Design Software (R/505/6389)
+
+## Canteen Ordering System — Level 1 Digital Skills
 
 Welcome to the **Canteen Ordering System** web design and programming project!
 
@@ -6,7 +8,7 @@ Welcome to the **Canteen Ordering System** web design and programming project!
 
 ## 📁 What's Inside This Repository:
 
-* **`template/`** — Master starter files (`index.html`, `style.css`, `app.js`, `util.js`, and `images/`). Keep this folder as your clean backup copy.
+* **`template/`** — Starter files (`index.html`, `style.css`, `app.js`, `util.js`, and `images/`). Keep this folder as your clean backup copy.
 * **`project/`** — Your working folder. This is where you will build and customize your own canteen ordering system.
 * **`examples/`** — Two completed exemplar projects for inspiration:
   * `demo-americana-diner/` — Retro 50s Diner theme with multi-column grid layout.
