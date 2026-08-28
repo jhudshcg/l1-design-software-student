@@ -21,7 +21,7 @@ Welcome to the **Canteen Ordering System** web design and programming project!
 
 ## 🚀 How to Get Started:
 
-1. **Set Up Git:** Open `guides/git-and-testing-guide.html` in your browser and follow **Step 2** to set your name and email in the VS Code terminal:
+1. **Set Up Git:** Open `guides/git-and-testing-guide.html` in your browser and follow **Step 2** (you already did step 1 to clone this repo) to set your name and email in the VS Code terminal:
    ```bash
    git config user.name "Your Name"
    git config user.email "your.student.email@college.ac.uk"
