@@ -1,0 +1,14 @@
+# Word documents and temp files (keep booklet outside the repository)
+*.docx
+*.doc
+~$*.docx
+~$*.doc
+
+# OS and temp files
+*.tmp
+Thumbs.db
+.DS_Store
+
+# Editor directories
+.vscode/
+.idea/

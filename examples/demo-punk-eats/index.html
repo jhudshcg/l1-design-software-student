@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Riot Bites - Street Food Ordering</title>
+
+  <!-- Google Fonts for Punk Aesthetic -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Creepster&family=Fredoka:wght@400;600;700&family=Inter:wght@400;600;700&family=Montserrat:wght@400;700&family=Oswald:wght@500;700&family=Special+Elite&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../../template/style.css">
+</head>
+
+<!--
+  DEMO 2 DESIGN CHOICES:
+  - Layout:  layout-sidebar-left (Distinct wireframe choice: Tray on the LEFT, menu on the RIGHT)
+  - Colour:  colour-dark (Stark black & white high-contrast underground zine vibe)
+  - Theme:   theme-punk (Creepster & Special Elite fonts, jagged tilted cards, ban-the-bomb & anarchy stickers)
+  - Spacing: spacing-compact (Snug, punchy spacing)
+-->
+<body class="layout-sidebar-left colour-dark theme-punk spacing-compact">
+
+  <header class="app-header">
+    <div class="header-container">
+      <div style="margin-bottom: 0.5rem;">
+        <span class="punk-sticker">☮ BAN THE BLAND</span>
+        <span class="punk-sticker sticker-white">Ⓐ NO JUNK RULES</span>
+        <span class="punk-sticker sticker-yellow">⚡ 100% RAW FLAVOUR</span>
+      </div>
+      <h1 id="app-title">☮ RIOT BITES Ⓐ</h1>
+      <p id="app-tagline">Loud flavours, fiery street snacks & cold brews for the campus crew</p>
+    </div>
+  </header>
+
+  <main class="app-main">
+    
+    <!-- Filter Bar -->
+    <section class="filter-section">
+      <div class="filter-group">
+        <label for="filter-type">⚡ Filter Grub:</label>
+        <select id="filter-type">
+          <option value="all">All Drops</option>
+          <option value="main">Heavy Hitters (Mains)</option>
+          <option value="snack">Side Kicks (Snacks)</option>
+          <option value="drink">Liquid Fuel (Drinks)</option>
+        </select>
+      </div>
+
+      <div class="filter-group">
+        <label class="checkbox-label">
+          <input type="checkbox" id="voucher-toggle">
+          Use £5.50 Campus Voucher ☮
+        </label>
+      </div>
+    </section>
+
+    <!-- Menu container -->
+    <section class="menu-section">
+      <h2 class="section-heading">⚡ Current Street Drops</h2>
+      <div id="menu-container" class="menu-container">
+        <!-- Dynamic cards -->
+      </div>
+    </section>
+
+    <!-- Order summary (Positioned on the Left in layout-sidebar-left) -->
+    <aside class="order-section">
+      <h2 class="section-heading">Ⓐ Your Stash</h2>
+
+      <div id="order-items-list" class="order-items-list">
+        <p class="empty-tray-message">Your stash is empty! Tap '+ Add to Tray' to load up.</p>
+      </div>
+
+      <div class="order-summary-box">
+        <div class="summary-row">
+          <span>Stash Count:</span>
+          <span id="summary-count">0</span>
+        </div>
+        <div class="summary-row">
+          <span>Subtotal:</span>
+          <span id="summary-subtotal">£0.00</span>
+        </div>
+        <div class="summary-row discount-row" id="discount-row" style="display: none;">
+          <span id="discount-label">Healthy Promo (-10%):</span>
+          <span id="summary-discount">-£0.00</span>
+        </div>
+        <hr class="summary-divider">
+        <div class="summary-row total-row">
+          <span>Total Damage:</span>
+          <span id="summary-total">£0.00</span>
+        </div>
+      </div>
+
+      <div id="status-feedback" class="status-feedback info">
+        <p id="status-message">Ready when you are. Pick your bites!</p>
+      </div>
+
+      <div class="order-actions">
+        <button id="btn-clear" class="btn btn-secondary">Dump Stash</button>
+        <button id="btn-checkout" class="btn btn-primary">Lock In Order ⚡</button>
+      </div>
+    </aside>
+
+  </main>
+
+  <footer class="app-footer">
+    <p>&copy; 2026 Riot Bites | ☮ DIY Punk Street Food | Level 1 Design Software Exemplar</p>
+  </footer>
+
+  <script src="../../template/util.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

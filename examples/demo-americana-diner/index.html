@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Route 66 Campus Diner - Example Project</title>
+
+  <!-- Google Fonts for Americana 50s Diner Style -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Creepster&family=Fredoka:wght@400;600;700&family=Inter:wght@400;600;700&family=Montserrat:wght@400;700&family=Oswald:wght@500;700&family=Special+Elite&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../../template/style.css">
+</head>
+
+<!--
+  DEMO 1 DESIGN CHOICES:
+  - Layout:  layout-grid (Organised, structured multi-column grid with tray on right)
+  - Colour:  colour-light (Bright clean diner atmosphere)
+  - Theme:   theme-americana (Bold Bungee font, red diner borders, retro Americana feel)
+  - Spacing: spacing-standard (Comfortable spacing for easy reading)
+-->
+<body class="layout-grid colour-light theme-americana spacing-standard">
+
+  <header class="app-header">
+    <div class="header-container">
+      <h1 id="app-title">Route 66 Campus Diner</h1>
+      <p id="app-tagline">Classic All-American comfort food, shakes & fries served all day!</p>
+    </div>
+  </header>
+
+  <main class="app-main">
+    
+    <!-- Filter and search bar -->
+    <section class="filter-section">
+      <div class="filter-group">
+        <label for="filter-type">Diner Menu Category:</label>
+        <select id="filter-type">
+          <option value="all">Full Diner Menu</option>
+          <option value="main">Diner Mains</option>
+          <option value="snack">Sides & Desserts</option>
+          <option value="drink">Shakes & Drinks</option>
+        </select>
+      </div>
+
+      <div class="filter-group">
+        <label class="checkbox-label">
+          <input type="checkbox" id="voucher-toggle">
+          Use Student Diner Voucher (£5.50)
+        </label>
+      </div>
+    </section>
+
+    <!-- Menu grid -->
+    <section class="menu-section">
+      <h2 class="section-heading">Today's Diner Specials</h2>
+      <div id="menu-container" class="menu-container">
+        <!-- Injected by util.js -->
+      </div>
+    </section>
+
+    <!-- Order summary and tray -->
+    <aside class="order-section">
+      <h2 class="section-heading">Your Diner Order</h2>
+
+      <div id="order-items-list" class="order-items-list">
+        <p class="empty-tray-message">Your tray is empty. Add your favourite diner items!</p>
+      </div>
+
+      <div class="order-summary-box">
+        <div class="summary-row">
+          <span>Items in Tray:</span>
+          <span id="summary-count">0</span>
+        </div>
+        <div class="summary-row">
+          <span>Subtotal:</span>
+          <span id="summary-subtotal">£0.00</span>
+        </div>
+        <div class="summary-row discount-row" id="discount-row" style="display: none;">
+          <span id="discount-label">Healthy Choice Promo (10% off):</span>
+          <span id="summary-discount">-£0.00</span>
+        </div>
+        <hr class="summary-divider">
+        <div class="summary-row total-row">
+          <span>Amount Due:</span>
+          <span id="summary-total">£0.00</span>
+        </div>
+      </div>
+
+      <div id="status-feedback" class="status-feedback info">
+        <p id="status-message">Welcome to Route 66 Diner! Add items to get started.</p>
+      </div>
+
+      <div class="order-actions">
+        <button id="btn-clear" class="btn btn-secondary">Start Over</button>
+        <button id="btn-checkout" class="btn btn-primary">Send Order</button>
+      </div>
+    </aside>
+
+  </main>
+
+  <footer class="app-footer">
+    <p>&copy; 2026 Route 66 Diner | Level 1 Design Software Exemplar Project</p>
+  </footer>
+
+  <script src="../../template/util.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

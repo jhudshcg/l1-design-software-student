@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guide 2: Customising Styles & Layout | L1 Design Software</title>
+  <style>
+    :root {
+      --primary: #0284c7;
+      --primary-dark: #0369a1;
+      --accent: #8b5cf6;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text: #0f172a;
+      --text-muted: #475569;
+      --border: #cbd5e1;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: linear-gradient(135deg, #eff6ff 0%, #fdf4ff 100%);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 2rem 1rem;
+    }
+    .guide-container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: var(--card-bg);
+      padding: 2.5rem;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.05);
+      border: 1px solid var(--border);
+    }
+    .header-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: #8b5cf6;
+      color: #ffffff;
+      padding: 0.35rem 0.9rem;
+      border-radius: 20px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+    h1 {
+      font-size: 2.2rem;
+      color: #0f172a;
+      margin-bottom: 0.5rem;
+      line-height: 1.2;
+    }
+    .subtitle {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      margin-bottom: 1.75rem;
+      padding-bottom: 1rem;
+      border-bottom: 2px solid #e2e8f0;
+    }
+    h2 {
+      font-size: 1.35rem;
+      color: #6d28d9;
+      margin-top: 2rem;
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    h3 {
+      font-size: 1.15rem;
+      color: #0f172a;
+      margin-top: 1.25rem;
+      margin-bottom: 0.5rem;
+    }
+    p, li {
+      margin-bottom: 0.75rem;
+      color: #334155;
+      font-size: 1rem;
+    }
+    ul, ol {
+      padding-left: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    code {
+      background: #f1f5f9;
+      padding: 0.2rem 0.45rem;
+      border-radius: 4px;
+      font-family: Consolas, monospace;
+      font-size: 0.95em;
+      color: #6d28d9;
+      font-weight: 600;
+    }
+    pre {
+      background: #0f172a;
+      color: #f8fafc;
+      padding: 1rem 1.25rem;
+      border-radius: 8px;
+      overflow-x: auto;
+      font-family: Consolas, monospace;
+      font-size: 0.92rem;
+      margin: 0.75rem 0 1.25rem 0;
+      border-left: 4px solid var(--accent);
+    }
+    .callout {
+      background: #f8fafc;
+      border-left: 5px solid var(--primary);
+      padding: 1.25rem;
+      border-radius: 8px;
+      margin: 1.25rem 0;
+    }
+    .callout.tip {
+      background: #eff6ff;
+      border-left-color: #2563eb;
+    }
+    .callout.activity {
+      background: #faf5ff;
+      border-left-color: #8b5cf6;
+    }
+    .callout.success {
+      background: #ecfdf5;
+      border-left-color: #10b981;
+    }
+
+    /* Web Building Blocks Visual Diagram */
+    .blocks-diagram {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1rem;
+      margin: 1.25rem 0;
+    }
+    .block-card {
+      background: #f8fafc;
+      border: 2px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 1.25rem;
+      text-align: center;
+    }
+    .block-card.html { border-top: 5px solid #e11d48; }
+    .block-card.css { border-top: 5px solid #0284c7; }
+    .block-card.js { border-top: 5px solid #eab308; }
+    .block-icon { font-size: 2rem; margin-bottom: 0.5rem; }
+    .block-title { font-weight: 800; font-size: 1.1rem; margin-bottom: 0.25rem; }
+    .block-role { font-size: 0.9rem; color: #64748b; font-style: italic; margin-bottom: 0.5rem; }
+    .block-desc { font-size: 0.9rem; color: #334155; }
+
+    /* Tables */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.25rem 0;
+      font-size: 0.95rem;
+    }
+    th, td {
+      border: 1px solid var(--border);
+      padding: 0.75rem;
+      text-align: left;
+    }
+    th {
+      background: #f1f5f9;
+      color: #0f172a;
+      font-weight: 700;
+    }
+    .class-tag {
+      display: inline-block;
+      background: #f0fdf4;
+      color: #166534;
+      border: 1px solid #bbf7d0;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      font-weight: bold;
+      font-family: monospace;
+      font-size: 0.9rem;
+      margin: 0.15rem 0;
+    }
+    .nav-footer {
+      margin-top: 2.5rem;
+      padding-top: 1.5rem;
+      border-top: 2px solid #e2e8f0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 700;
+    }
+    .nav-footer a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: #8b5cf6;
+      color: #ffffff;
+      padding: 0.6rem 1.2rem;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .nav-footer a:hover {
+      background: #7c3aed;
+    }
+    .nav-footer a.secondary {
+      background: #64748b;
+    }
+    .nav-footer a.secondary:hover {
+      background: #475569;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="guide-container">
+    <div class="header-badge">🎨 Guide 2 of 4</div>
+    <h1>Customising Styles & Layout</h1>
+    <p class="subtitle">Understand how web pages work, how CSS classes style HTML elements, and customize your app's visual identity.</p>
+
+    <h2>🏗️ 1. The 3 Building Blocks of a Web App</h2>
+    <p>Every website and web application is built using three essential languages that work together as a team:</p>
+
+    <div class="blocks-diagram">
+      <div class="block-card html">
+        <div class="block-icon">🦴</div>
+        <div class="block-title" style="color: #e11d48;">HTML</div>
+        <div class="block-role">The Skeleton / Structure</div>
+        <div class="block-desc">Places the building blocks on the page: headings, text, buttons, images, and card boxes.</div>
+      </div>
+      <div class="block-card css">
+        <div class="block-icon">🎨</div>
+        <div class="block-title" style="color: #0284c7;">CSS</div>
+        <div class="block-role">The Clothes / Style</div>
+        <div class="block-desc">Controls the look and feel: colours, backgrounds, fonts, borders, card layout, and spacing.</div>
+      </div>
+      <div class="block-card js">
+        <div class="block-icon">⚡</div>
+        <div class="block-title" style="color: #ca8a04;">JavaScript</div>
+        <div class="block-role">The Brain / Action</div>
+        <div class="block-desc">Makes it interactive: calculates order totals, checks budget vouchers, and displays allergy alerts.</div>
+      </div>
+    </div>
+
+    <h2>🏷️ 2. What is an HTML Element and a CSS Class?</h2>
+
+    <h3>1. What is an HTML Element?</h3>
+    <p>An HTML element is a building block on a page. It starts with an opening tag <code>&lt;tag&gt;</code>, has some content inside, and finishes with a closing tag <code>&lt;/tag&gt;</code>:</p>
+    <pre>&lt;h1&gt;Campus Canteen&lt;/h1&gt;       &lt;!-- Heading Element --&gt;
+&lt;button&gt;Place Order&lt;/button&gt;  &lt;!-- Button Element --&gt;</pre>
+
+    <h3>2. What is the <code>&lt;body&gt;</code> Element?</h3>
+    <p>The <code>&lt;body&gt;</code> tag is the <strong>master container</strong> that wraps around everything visible on the screen. Any style applied to the <code>&lt;body&gt;</code> changes the overall look of the entire page.</p>
+
+    <h3>3. What is a CSS Class Attribute?</h3>
+    <p>A <strong>class</strong> is like a label or a costume tag attached to an HTML element. When you write <code>class="..."</code> inside a tag, CSS checks its rulebook in <code>style.css</code> and instantly applies that design theme:</p>
+    <pre>&lt;!-- Giving the body element 4 style classes: --&gt;
+&lt;body class="layout-grid colour-light theme-modern spacing-standard"&gt;</pre>
+
+    <h2>🧪 3. Hands-On Activity: Test Changing a Style Class</h2>
+    
+    <div class="callout activity">
+      <strong>🎯 Step-by-Step Practice:</strong>
+      <ol>
+        <li>Open your project folder in <strong>VS Code</strong>.</li>
+        <li>Open the <strong><code>index.html</code></strong> file.</li>
+        <li>Look around <strong>line 18</strong> for the <code>&lt;body class="..."&gt;</code> tag.</li>
+        <li>Change <code>colour-light</code> to <code>colour-dark</code>:
+          <pre>&lt;body class="layout-grid colour-dark theme-modern spacing-standard"&gt;</pre>
+        </li>
+        <li>Save the file by pressing <strong><code>Ctrl + S</code></strong>.</li>
+        <li>Double-click <code>index.html</code> (or refresh your browser tab) &mdash; notice how the app instantly flips to a dark night-mode colour scheme!</li>
+        <li>Now try changing <code>theme-modern</code> to <code>theme-americana</code> or <code>theme-punk</code>, save, and refresh to see the typography and borders change!</li>
+      </ol>
+    </div>
+
+    <h2>📋 4. Complete Design Options Cheat Sheet</h2>
+    <p>You can mix and match any combination of the 4 class categories on your <code>&lt;body&gt;</code> tag:</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Category</th>
+          <th>Available Class Names</th>
+          <th>Visual Effect</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>1. Layout</strong></td>
+          <td>
+            <span class="class-tag">layout-grid</span><br>
+            <span class="class-tag">layout-flex</span><br>
+            <span class="class-tag">layout-sidebar-left</span><br>
+            <span class="class-tag">layout-single-column</span>
+          </td>
+          <td>
+            Multi-column grid of cards with tray on right<br>
+            Flexible wrapping cards with tray on right<br>
+            Tray positioned on the <strong>Left</strong> with menu on right<br>
+            Vertical single-column list with horizontal cards
+          </td>
+        </tr>
+        <tr>
+          <td><strong>2. Colour Scheme</strong></td>
+          <td>
+            <span class="class-tag">colour-light</span><br>
+            <span class="class-tag">colour-dark</span><br>
+            <span class="class-tag">colour-contrast</span>
+          </td>
+          <td>
+            Clean white card background with slate text<br>
+            Dark navy background with high-contrast cards<br>
+            High-contrast solid black & yellow for visual accessibility
+          </td>
+        </tr>
+        <tr>
+          <td><strong>3. Design Theme</strong></td>
+          <td>
+            <span class="class-tag">theme-modern</span><br>
+            <span class="class-tag">theme-retro</span><br>
+            <span class="class-tag">theme-americana</span><br>
+            <span class="class-tag">theme-punk</span><br>
+            <span class="class-tag">theme-emo</span>
+          </td>
+          <td>
+            Crisp rounded cards, blue accents, Montserrat font<br>
+            Warm pill-shaped badges, orange tones, Fredoka font<br>
+            50s diner stripes, bold red borders, Bungee font<br>
+            Raw DIY zine, stark B&W + neon pink, Creepster font, tilted cards & ban-the-bomb ☮ decals<br>
+            Typewriter font, deep indigo/charcoal tones
+          </td>
+        </tr>
+        <tr>
+          <td><strong>4. Spacing</strong></td>
+          <td>
+            <span class="class-tag">spacing-compact</span><br>
+            <span class="class-tag">spacing-standard</span><br>
+            <span class="class-tag">spacing-spacious</span>
+          </td>
+          <td>
+            Tight margins (fits more items on the screen)<br>
+            Balanced comfortable reading distance<br>
+            Wide generous padding and margins
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>💡 5. Example Theme Combinations</h2>
+    <ul>
+      <li>🍔 <strong>50s American Diner:</strong> <code>class="layout-grid colour-light theme-americana spacing-standard"</code></li>
+      <li>⚡ <strong>DIY Street Food Punk:</strong> <code>class="layout-sidebar-left colour-dark theme-punk spacing-compact"</code></li>
+      <li>♿ <strong>Accessible High Contrast:</strong> <code>class="layout-single-column colour-contrast theme-modern spacing-spacious"</code></li>
+      <li>🧁 <strong>Cute Retro Cafe:</strong> <code>class="layout-grid colour-light theme-retro spacing-standard"</code></li>
+    </ul>
+
+    <div class="callout tip">
+      <strong>Task 8 in Project Booklet:</strong> Once you find a look and feel you love, write down your chosen class names in <strong>Task 8</strong> of your Project Booklet and paste a screenshot of your styled app!
+    </div>
+
+    <div class="nav-footer">
+      <a href="guide-1-research-and-design.html" class="secondary">&larr; Guide 1: Research & Design</a>
+      <a href="guide-3-coding-challenges.html">Next: Guide 3 &mdash; Coding Challenges &rarr;</a>
+    </div>
+  </div>
+
+</body>
+</html>

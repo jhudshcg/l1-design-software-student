@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guide 3: JavaScript Coding Challenges | L1 Design Software</title>
+  <style>
+    :root {
+      --primary: #d97706;
+      --primary-dark: #b45309;
+      --accent: #2563eb;
+      --bg: #fffbeb;
+      --card-bg: #ffffff;
+      --text: #0f172a;
+      --text-muted: #475569;
+      --border: #cbd5e1;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 50%, #eff6ff 100%);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 2rem 1rem;
+    }
+    .guide-container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: var(--card-bg);
+      padding: 2.5rem;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.05);
+      border: 1px solid var(--border);
+    }
+    .header-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: #d97706;
+      color: #ffffff;
+      padding: 0.35rem 0.9rem;
+      border-radius: 20px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+    h1 {
+      font-size: 2.2rem;
+      color: #0f172a;
+      margin-bottom: 0.5rem;
+      line-height: 1.2;
+    }
+    .subtitle {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      margin-bottom: 1.75rem;
+      padding-bottom: 1rem;
+      border-bottom: 2px solid #e2e8f0;
+    }
+    h2 {
+      font-size: 1.35rem;
+      color: #b45309;
+      margin-top: 2rem;
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    h3 {
+      font-size: 1.15rem;
+      color: #0f172a;
+      margin-top: 1.25rem;
+      margin-bottom: 0.5rem;
+    }
+    p, li {
+      margin-bottom: 0.75rem;
+      color: #334155;
+      font-size: 1rem;
+    }
+    ul, ol {
+      padding-left: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    code {
+      background: #f1f5f9;
+      padding: 0.2rem 0.45rem;
+      border-radius: 4px;
+      font-family: Consolas, monospace;
+      font-size: 0.95em;
+      color: #b45309;
+      font-weight: 600;
+    }
+    pre {
+      background: #0f172a;
+      color: #f8fafc;
+      padding: 1rem 1.25rem;
+      border-radius: 8px;
+      overflow-x: auto;
+      font-family: Consolas, monospace;
+      font-size: 0.92rem;
+      margin: 0.75rem 0 1.25rem 0;
+      border-left: 4px solid var(--primary);
+    }
+    .callout {
+      background: #f8fafc;
+      border-left: 5px solid var(--primary);
+      padding: 1.25rem;
+      border-radius: 8px;
+      margin: 1.25rem 0;
+    }
+    .callout.tip {
+      background: #eff6ff;
+      border-left-color: #2563eb;
+    }
+    .callout.warning {
+      background: #fffbeb;
+      border-left-color: #f59e0b;
+    }
+    .callout.success {
+      background: #ecfdf5;
+      border-left-color: #10b981;
+    }
+
+    /* Core Concepts Grid */
+    .concepts-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin: 1.25rem 0;
+    }
+    .concept-card {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 1rem;
+      border-top: 4px solid var(--primary);
+    }
+    .concept-title {
+      font-weight: 700;
+      color: #0f172a;
+      font-size: 1rem;
+      margin-bottom: 0.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .concept-desc {
+      font-size: 0.88rem;
+      color: #475569;
+    }
+
+    /* Challenge Cards */
+    .challenge-card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-left: 5px solid #d97706;
+      padding: 1.5rem;
+      border-radius: 10px;
+      margin-bottom: 1.75rem;
+      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+    }
+    .challenge-card:nth-of-type(even) {
+      border-left-color: #2563eb;
+    }
+    .challenge-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.75rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid #e2e8f0;
+    }
+    .challenge-title {
+      font-weight: 800;
+      font-size: 1.2rem;
+      color: #0f172a;
+    }
+    .challenge-badge {
+      background: #fef3c7;
+      color: #b45309;
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 0.2rem 0.6rem;
+      border-radius: 12px;
+      text-transform: uppercase;
+    }
+
+    /* Options Decision Box */
+    .options-box {
+      background: #f8fafc;
+      border: 2px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      margin: 1rem 0;
+    }
+    .options-prompt {
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .option-item {
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      padding: 0.6rem 0.8rem;
+      border-radius: 6px;
+      margin-bottom: 0.4rem;
+      font-size: 0.92rem;
+      font-family: Consolas, monospace;
+    }
+    .option-item strong {
+      color: #2563eb;
+      font-family: sans-serif;
+      margin-right: 0.4rem;
+    }
+
+    .nav-footer {
+      margin-top: 2.5rem;
+      padding-top: 1.5rem;
+      border-top: 2px solid #e2e8f0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 700;
+    }
+    .nav-footer a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: var(--primary);
+      color: #ffffff;
+      padding: 0.6rem 1.2rem;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .nav-footer a:hover {
+      background: var(--primary-dark);
+    }
+    .nav-footer a.secondary {
+      background: #64748b;
+    }
+    .nav-footer a.secondary:hover {
+      background: #475569;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="guide-container">
+    <div class="header-badge">⚡ Guide 3 of 4</div>
+    <h1>JavaScript Coding Challenges & Snippet Bank</h1>
+    <p class="subtitle">A beginner-friendly problem-solving guide to making your canteen ordering system interactive.</p>
+
+    <h2>🧠 1. What is JavaScript? (Beginner Friendly Intro)</h2>
+    <p>JavaScript is the programming language that gives your canteen app its <strong>interactive features</strong>. While HTML displays the cards and CSS makes them look great, JavaScript does the math calculations, checks meal voucher budgets, and alerts users about allergies.</p>
+
+    <div class="concepts-grid">
+      <div class="concept-card">
+        <div class="concept-title">📦 Variables (<code>var</code>)</div>
+        <div class="concept-desc">Named storage that hold information, such as numbers (<code>price: 3.50</code>) or text strings (<code>name: "Burger"</code>).</div>
+      </div>
+      <div class="concept-card">
+        <div class="concept-title">🔄 Loops (<code>for</code>)</div>
+        <div class="concept-desc">A repetition block for repeating code. For example to look at every item on the user's tray, one by one, to add up prices or check allergies.</div>
+      </div>
+      <div class="concept-card">
+        <div class="concept-title">⚖️ If Conditions (<code>if</code>)</div>
+        <div class="concept-desc">Decision makers that ask True/False questions (e.g. "Is the total over £5.50?" or "Does this item contain nuts?"). Then runs code if the answer is True.</div>
+      </div>
+      <div class="concept-card">
+        <div class="concept-title">⚙️ Functions</div>
+        <div class="concept-desc">A named recipe or mini-program that performs a specific job and gives back an answer (like calculating the total to pay).</div>
+      </div>
+    </div>
+
+    <div class="callout tip">
+      <strong>Your Workspace Setup:</strong> All your coding tasks are inside <strong><code>app.js</code></strong>. The other script file, <code>util.js</code>, handles background screen updates &mdash; you do not need to touch <code>util.js</code>!
+    </div>
+
+    <h2>📁 2. Step 1: Inputting Your 10 Researched Menu Items</h2>
+    <p>Open <code>app.js</code> in VS Code. Near the top, find the <code>orderItems</code> list. Each food item is stored as an object. Update the names, prices, local image paths, and allergy details to match your research:</p>
+
+    <pre>var orderItems = [
+  {
+    name: "Classic Chicken Burger",
+    price: 3.50,
+    image: "images/chicken-burger.jpg",   // Use your local images/ folder!
+    type: "main",                         // "main", "snack", or "drink"
+    description: "Crispy breaded fillet with fresh lettuce and mayo.",
+    healthpromo: false,                   // true for healthy choice, false otherwise
+    alergy_warning: ['gluten', 'dairy']   // list any allergens
+  },
+  // Add your other researched items below...
+];</pre>
+
+    <h2>🎯 3. The 5 Coding Challenges (Think, Choose & Modify)</h2>
+
+    <!-- CHALLENGE 1 -->
+    <div class="challenge-card">
+      <div class="challenge-header">
+        <div class="challenge-title">Challenge 1: Calculate Tray Subtotal</div>
+        <span class="challenge-badge">Snippet Bank Task</span>
+      </div>
+      <p><strong>Goal:</strong> Loop through every item on the customer's tray and add up each item's price to find the total.</p>
+
+      <p><strong>Reference Snippet from Snippet Bank:</strong></p>
+      <pre>// This example snippet totals up item weights:
+var total = 0.0;
+for (var i = 0; i < items.length; i++) {
+  total += items[i].weight; // Adds each item's weight to the total
+}
+return total;</pre>
+
+      <div class="options-box">
+        <div class="options-prompt">🤔 Which code line should replace <code>total += 0;</code> inside <code>calculateSubtotal(tray)</code>?</div>
+        <div class="option-item"><strong>Option A:</strong> <code>total += tray[i].name;</code> &mdash; (Adds item names together as text)</div>
+        <div class="option-item"><strong>Option B:</strong> <code>total += tray[i].price;</code> &mdash; (Adds each item's price to the running total)</div>
+        <div class="option-item"><strong>Option C:</strong> <code>total += items[i].weight;</code> &mdash; (Uses 'items' instead of 'tray' and 'weight' instead of 'price')</div>
+        <div class="option-item"><strong>Option D:</strong> <code>total = total + 5.50;</code> &mdash; (Always adds a fixed £5.50 regardless of items)</div>
+      </div>
+
+      <p><em>In app.js:</em> Inspect the function <code>calculateSubtotal(tray)</code>, pick the correct option, replace <code>total += 0;</code>, save with <code>Ctrl + S</code>, and add items in your browser to verify that the subtotal updates!</p>
+    </div>
+
+    <!-- CHALLENGE 2 -->
+    <div class="challenge-card">
+      <div class="challenge-header">
+        <div class="challenge-title">Challenge 2: £5.50 Meal Voucher Budget Check</div>
+        <span class="challenge-badge">Fix the Code</span>
+      </div>
+      <p><strong>Goal:</strong> If the student's order exceeds the £5.50 meal voucher limit, trigger a warning message.</p>
+
+      <p>In <code>app.js</code>, find the <code>checkBudgetLimit(totalAmount)</code> function:</p>
+      <pre>function checkBudgetLimit(totalAmount) {
+  var voucherLimit = 5.50;
+
+  // Which operator should replace '==' ?
+  if (totalAmount == voucherLimit) {
+    return "Warning: Your order of £" + totalAmount.toFixed(2) + " exceeds the £5.50 meal voucher limit!";
+  }
+  return "";
+}</pre>
+
+      <div class="options-box">
+        <div class="options-prompt">🤔 How do comparison operators work with numbers?</div>
+        <div class="option-item"><strong>Option A:</strong> <code>&gt;</code> &mdash; <strong>Greater Than:</strong> Left side is BIGGER than right side.<br><small style="color: #64748b;">Example: <code>6.20 &gt; 5.50</code> is TRUE (and <code>totalAmount &gt; voucherLimit</code> triggers warning when over budget)</small></div>
+        <div class="option-item"><strong>Option B:</strong> <code>&lt;</code> &mdash; <strong>Less Than:</strong> Left side is SMALLER than right side.<br><small style="color: #64748b;">Example: <code>4.50 &lt; 5.50</code> is TRUE (triggers when under budget)</small></div>
+        <div class="option-item"><strong>Option C:</strong> <code>==</code> &mdash; <strong>Equal To:</strong> Both sides must be EXACTLY the same.<br><small style="color: #64748b;">Example: <code>5.50 == 5.50</code> is TRUE (triggers only if total is exactly £5.50)</small></div>
+        <div class="option-item"><strong>Option D:</strong> <code>+</code> &mdash; <strong>Plus Sign:</strong> Adds two numbers together (Math arithmetic, not a True/False comparison test)</div>
+      </div>
+    </div>
+
+    <!-- CHALLENGE 3 -->
+    <div class="challenge-card">
+      <div class="challenge-header">
+        <div class="challenge-title">Challenge 3: Allergen Alert Warning</div>
+        <span class="challenge-badge">Fill-in-the-Blank</span>
+      </div>
+      <p><strong>Goal:</strong> Check if any item placed on the tray contains an allergen (such as nuts), and display an alert.</p>
+
+      <p>In <code>app.js</code>, find <code>checkOrderAllergies(tray)</code>:</p>
+      <pre>for (var i = 0; i < tray.length; i++) {
+  var item = tray[i];
+  
+  // Replace 'BLANK' with the correct code:
+  if (item.alergy_warning.includes('BLANK')) {
+    return "Allergy Alert: " + item.name + " contains nuts! Please check ingredients.";
+  }
+}</pre>
+
+      <div class="options-box">
+        <div class="options-prompt">🤔 Which value correctly searches the allergy list for nuts?</div>
+        <div class="option-item"><strong>Option A:</strong> <code>nuts</code> &mdash; (Missing quotes &mdash;)</div>
+        <div class="option-item"><strong>Option B:</strong> <code>5.50</code> &mdash; (A price number instead of an allergy name)</div>
+        <div class="option-item"><strong>Option C:</strong> <code>true</code> &mdash; (A boolean flag instead of an allergy name)</div>
+        <div class="option-item"><strong>Option D:</strong> <code>'nuts'</code> &mdash; (The text string 'nuts' enclosed in single quotation marks)</div>      
+      </div>
+    </div>
+
+    <!-- CHALLENGE 4 -->
+    <div class="challenge-card">
+      <div class="challenge-header">
+        <div class="challenge-title">Challenge 4: Healthy Choice 10% Discount Promotion</div>
+        <span class="challenge-badge">2-Step Problem Solving</span>
+      </div>
+      <p><strong>Goal:</strong> Reward healthy eating! If the customer selects <strong>2 or more</strong> healthy items (where <code>healthpromo == true</code>), give them a <strong>10% discount</strong> off their subtotal.</p>
+
+      <h3>Step 4A: Counting Healthy Items</h3>
+      <p>Inside the loop in <code>checkHealthyPromotion(tray, subtotal)</code>, we check if each item is healthy:</p>
+
+      <div class="options-box">
+        <div class="options-prompt">🤔 How should we increase <code>healthyCount</code> whenever a healthy item is found?</div>
+        <div class="option-item"><strong>Option A:</strong> <code>healthyCount += 0;</code> &mdash; (Adds zero &mdash; counter never goes up)</div>
+        <div class="option-item"><strong>Option B:</strong> <code>healthyCount += 1;</code> &mdash; (Adds 1 to the count for each healthy item)</div>
+        <div class="option-item"><strong>Option C:</strong> <code>healthyCount = subtotal;</code> &mdash; (Overwrites the count with the total price)</div>
+      </div>
+
+      <h3>Step 4B: Calculating the 10% Discount Amount</h3>
+      <p>If <code>healthyCount &gt;= 2</code>, we need to calculate 10% of the subtotal.</p>
+
+      <div class="options-box">
+        <div class="options-prompt">🤔 How do you calculate 10% in JavaScript?</div>
+        <div class="option-item"><strong>Option A:</strong> <code>return subtotal * 10;</code> &mdash; (Multiplies by 10 &mdash; makes the discount 10 times the price!)</div>
+        <div class="option-item"><strong>Option B:</strong> <code>return subtotal * 0.10;</code> &mdash; (Multiplies by 0.10 &mdash; exactly 10% discount amount)</div>
+        <div class="option-item"><strong>Option C:</strong> <code>return subtotal - 2.00;</code> &mdash; (Subtracts £2.00 fixed amount instead of 10%)</div>
+        <div class="option-item"><strong>Option D:</strong> <code>return subtotal * 0.50;</code> &mdash; (50% half-price discount)</div>
+      </div>
+    </div>
+
+    <!-- CHALLENGE 5 -->
+    <div class="challenge-card">
+      <div class="challenge-header">
+        <div class="challenge-title">Challenge 5: Custom Checkout Confirmation</div>
+        <span class="challenge-badge">Personalise & Experiment</span>
+      </div>
+      <p><strong>Goal:</strong> When the user clicks "Place Order", display a friendly order message that includes how many items they ordered (<code>tray.length</code>).</p>
+
+      <div class="options-box">
+        <div class="options-prompt">🤔 Pick or customise your confirmation message in <code>handleCheckout(tray)</code>:</div>
+        <div class="option-item"><strong>Diner Style:</strong> <code>var customerMessage = "Order Placed! The diner kitchen is grilling your " + tray.length + " item(s).";</code></div>
+        <div class="option-item"><strong>Street Punk Style:</strong> <code>var customerMessage = "⚡ ORDER LOCKED! " + tray.length + " street drops are heading your way.";</code></div>
+        <div class="option-item"><strong>Classic Campus Style:</strong> <code>var customerMessage = "Thank you! Your order of " + tray.length + " item(s) is being prepared.";</code></div>
+      </div>
+    </div>
+
+    <h2>🔍 4. How to Test & Debug Your Code (Developer Tools)</h2>
+    <div class="callout warning">
+      <strong>Spotting Mistakes:</strong> If a button doesn't work or totals don't update:
+      <ol>
+        <li>Open your app in the browser (Chrome / Edge).</li>
+        <li>Press <strong><code>F12</code></strong> (or right-click and choose <strong>Inspect</strong>).</li>
+        <li>Click the <strong>Console</strong> tab at the top.</li>
+        <li>Look for any red error messages &mdash; the console will tell you the exact line number in <code>app.js</code> where a spelling or syntax mistake occurred!</li>
+      </ol>
+    </div>
+
+    <div class="nav-footer">
+      <a href="guide-2-customising-styles.html" class="secondary">&larr; Guide 2: Customising Styles</a>
+      <a href="git-and-testing-guide.html">Next: Git Version Control & Testing Guide &rarr;</a>
+    </div>
+  </div>
+
+</body>
+</html>

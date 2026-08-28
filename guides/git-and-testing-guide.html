@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Git Version Control & Testing Guide | L1 Design Software</title>
+  <style>
+    :root {
+      --primary: #10b981;
+      --primary-dark: #059669;
+      --accent: #0284c7;
+      --bg: #ecfdf5;
+      --card-bg: #ffffff;
+      --text: #0f172a;
+      --text-muted: #475569;
+      --border: #cbd5e1;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: linear-gradient(135deg, #ecfdf5 0%, #eff6ff 100%);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 2rem 1rem;
+    }
+    .guide-container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: var(--card-bg);
+      padding: 2.5rem;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.05);
+      border: 1px solid var(--border);
+    }
+    .header-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: #10b981;
+      color: #ffffff;
+      padding: 0.35rem 0.9rem;
+      border-radius: 20px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+    h1 {
+      font-size: 2.2rem;
+      color: #0f172a;
+      margin-bottom: 0.5rem;
+      line-height: 1.2;
+    }
+    .subtitle {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      margin-bottom: 1.75rem;
+      padding-bottom: 1rem;
+      border-bottom: 2px solid #e2e8f0;
+    }
+    h2 {
+      font-size: 1.35rem;
+      color: #047857;
+      margin-top: 2rem;
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    h3 {
+      font-size: 1.15rem;
+      color: #0f172a;
+      margin-top: 1.25rem;
+      margin-bottom: 0.5rem;
+    }
+    p, li {
+      margin-bottom: 0.75rem;
+      color: #334155;
+      font-size: 1rem;
+    }
+    ul, ol {
+      padding-left: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    code {
+      background: #f1f5f9;
+      padding: 0.2rem 0.45rem;
+      border-radius: 4px;
+      font-family: Consolas, monospace;
+      font-size: 0.95em;
+      color: #047857;
+      font-weight: 600;
+    }
+    pre {
+      background: #0f172a;
+      color: #f8fafc;
+      padding: 1rem 1.25rem;
+      border-radius: 8px;
+      overflow-x: auto;
+      font-family: Consolas, monospace;
+      font-size: 0.92rem;
+      margin: 0.75rem 0 1.25rem 0;
+      border-left: 4px solid var(--primary);
+    }
+    .callout {
+      background: #f8fafc;
+      border-left: 5px solid var(--primary);
+      padding: 1.25rem;
+      border-radius: 8px;
+      margin: 1.25rem 0;
+    }
+    .callout.tip {
+      background: #eff6ff;
+      border-left-color: #2563eb;
+    }
+    .callout.warning {
+      background: #fffbeb;
+      border-left-color: #f59e0b;
+    }
+    .callout.activity {
+      background: #f0fdf4;
+      border-left-color: #10b981;
+    }
+    .callout.danger {
+      background: #fef2f2;
+      border-left-color: #ef4444;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.25rem 0;
+      font-size: 0.95rem;
+    }
+    th, td {
+      border: 1px solid var(--border);
+      padding: 0.75rem;
+      text-align: left;
+    }
+    th {
+      background: #f1f5f9;
+      color: #0f172a;
+      font-weight: 700;
+    }
+    .step-box {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--primary);
+      padding: 1.25rem;
+      border-radius: 8px;
+      margin-bottom: 1.25rem;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.03);
+    }
+    .step-number {
+      font-weight: bold;
+      color: #047857;
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+    .nav-footer {
+      margin-top: 2.5rem;
+      padding-top: 1.5rem;
+      border-top: 2px solid #e2e8f0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 700;
+    }
+    .nav-footer a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: var(--primary);
+      color: #ffffff;
+      padding: 0.6rem 1.2rem;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .nav-footer a:hover {
+      background: var(--primary-dark);
+    }
+    .nav-footer a.secondary {
+      background: #64748b;
+    }
+    .nav-footer a.secondary:hover {
+      background: #475569;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="guide-container">
+    <div class="header-badge">💾 Version Control & Testing Guide</div>
+    <h1>Git Version Control & Testing Guide</h1>
+    <p class="subtitle">Learn how to save project checkpoints with Git in VS Code, undo mistakes, review changes, and test your ordering system.</p>
+
+    <div class="callout tip">
+      <strong>👋 Read This Before You Start Coding!</strong><br>
+      Set up Git <em>before</em> editing your code so you can save safe checkpoints at each stage of your project. If something ever breaks, Git lets you jump back to an earlier working version with one click!
+    </div>
+
+    <h2>🤔 What is Git and Why is it Useful?</h2>
+    <p>Think of <strong>Git</strong> like a magical video game <strong>save system</strong> for your code and project files.</p>
+    <ul>
+      <li>🎮 <strong>Save Points (Commits):</strong> Instead of saving messy files like <code>app_final_v2_reallyfinal.js</code>, Git lets you save clean milestone checkpoints (e.g. <em>"Added 10 menu items"</em>).</li>
+      <li>⏪ <strong>Time Machine / Undo Safety Net:</strong> If you edit some code that accidentally breaks your app, Git allows you to instantly roll back to your last working checkpoint with no stress.</li>
+      <li>🔍 <strong>Compare Differences:</strong> You can see a side-by-side view showing exactly what lines of code you added, changed, or deleted.</li>
+    </ul>
+
+    <h2>📥 1. Cloning Your Project Repository from GitHub</h2>
+    <p>Your teacher will provide the GitHub repository link for the canteen starter project. Cloning copies the entire project folder and all its version history directly onto your computer.</p>
+
+    <div class="step-box">
+      <div class="step-number">Step 1: Clone the Repo in VS Code (Choose One Method)</div>
+      <p><strong>Method A (Using VS Code Interface):</strong></p>
+      <ol>
+        <li>Open <strong>VS Code</strong>.</li>
+        <li>On the Welcome page, click <strong>"Clone Git Repository..."</strong> (or press <code>Ctrl + Shift + P</code> and type <em>"Git: Clone"</em>).</li>
+        <li>Paste the repository URL provided by your teacher and press <strong>Enter</strong>.</li>
+        <li>Choose a folder on your student drive to save it, then click <strong>"Open Repository"</strong> when prompted.</li>
+      </ol>
+      <p style="margin-top: 0.75rem;"><strong>Method B (Using Terminal):</strong></p>
+      <pre>git clone &lt;REPOSITORY-URL&gt;</pre>
+      <p style="font-size: 0.88rem; color: var(--text-muted);"><em>Once opened, all starter files, templates, and example folders will be ready in your workspace!</em></p>
+    </div>
+
+    <div class="callout warning">
+      <strong>⚠️ Important Note on Project Booklets:</strong><br>
+      Do <strong>NOT</strong> save or move your <code>booklet.docx</code> (Word document) into your Git repository folder. OneDrive syncing and Word file locks can interfere with Git tracking. Keep your Word booklet stored in your student coursework folder outside the repository.
+    </div>
+
+    <h2>⚙️ 2. One-Time Git Identity Setup (Per-Project Local Config)</h2>
+    <p>Because college computers are shared between different students and accounts, configure Git for <strong>your project workspace</strong> (using local config, not global):</p>
+
+    <div class="step-box">
+      <div class="step-number">Step 2: Set Your Student Identity in the Terminal</div>
+      <p>Click <strong>Terminal &rarr; New Terminal</strong> (or press <code>Ctrl + `</code>), then type these two commands (press Enter after each):</p>
+      <pre>git config user.name "Your Full Name"
+git config user.email "your.student.email@college.ac.uk"</pre>
+      <p style="font-size: 0.88rem; color: var(--text-muted);"><em>Note: We do not use <code>--global</code> here so your personal details stay tied strictly to your own project folder.</em></p>
+    </div>
+
+    <h2>💾 3. How to Save a Checkpoint (Commit All Changes)</h2>
+    <p>A <strong>commit</strong> is a permanent snapshot of all your project files. You don't need to manually stage individual files &mdash; you can commit all your edits in one simple action:</p>
+
+    <div class="step-box">
+      <div class="step-number">Step 3: Committing in the VS Code GUI</div>
+      <ol>
+        <li>Click the <strong>Source Control icon</strong> on the left activity bar (or press <code>Ctrl + Shift + G</code>).</li>
+        <li>In the <strong>Message box</strong> at the top, type a short message describing what you just completed (e.g. <code>"style: changed theme to retro diner"</code>).</li>
+        <li>Click the blue <strong>Commit</strong> button (or press <code>Ctrl + Enter</code>).</li>
+        <li>If VS Code asks: <em>"There are no staged changes to commit. Would you like to stage all your changes and commit them directly?"</em>, click <strong>Always</strong>.</li>
+      </ol>
+    </div>
+
+    <div class="callout tip">
+      <strong>Clear Commit Message Examples:</strong>
+      <ul>
+        <li><code>"feat: added 10 researched food items and local images"</code></li>
+        <li><code>"style: customized layout to sidebar-left and punk theme"</code></li>
+        <li><code>"feat: completed subtotal calculation and budget check"</code></li>
+        <li><code>"fix: corrected allergen warning text for dairy products"</code></li>
+      </ul>
+    </div>
+
+    <h2>🧪 4. Practice Activity: Change Theme, Commit & Review Changes</h2>
+    <p>Try this quick test right now to see Git's version control powers in action:</p>
+
+    <div class="callout activity">
+      <strong>🎯 Step-by-Step Git Test:</strong>
+      <ol>
+        <li>Open <code>index.html</code> and change your <code>&lt;body&gt;</code> class (for example, change <code>theme-modern</code> to <code>theme-retro</code>). Save the file (<code>Ctrl + S</code>).</li>
+        <li>Open the <strong>Source Control panel</strong> (<code>Ctrl + Shift + G</code>). Notice <code>index.html</code> is listed under <strong>Changes</strong> with an <strong>M</strong> (Modified).</li>
+        <li><strong>Click on <code>index.html</code></strong> in the list. VS Code opens a side-by-side <strong>Diff View</strong> comparing the old code (red on the left) with your new code (green on the right)!</li>
+        <li>In the commit message box, type: <code>"test: updated theme to retro"</code> and click <strong>Commit</strong>.</li>
+        <li>Notice that the Changes list is now completely clean &mdash; your checkpoint is safely saved!</li>
+      </ol>
+    </div>
+
+    <h2>⏪ 5. How to Roll Back / Revert Mistakes</h2>
+    <p>If you make an edit that breaks your app, or you want to undo changes since your last commit:</p>
+
+    <div class="step-box">
+      <div class="step-number">Option A: Discard Unsaved Changes (Clean Slate)</div>
+      <p>If you made changes in a file that you haven't committed yet and want to throw them away:</p>
+      <ul>
+        <li>In the <strong>Source Control</strong> panel, hover over the modified file under <em>Changes</em>.</li>
+        <li>Click the <strong>Discard Changes icon</strong> (the curved back-arrow <strong>⤺</strong>).</li>
+        <li>VS Code will instantly restore the file back to your last saved commit!</li>
+      </ul>
+    </div>
+
+    <div class="step-box">
+      <div class="step-number">Option B: View History or Checkout an Earlier Commit</div>
+      <p>To view your timeline of saved checkpoints or restore an earlier version:</p>
+      <ul>
+        <li>In the Source Control panel, look at the <strong>Timeline</strong> or <strong>Graph / Commits</strong> section at the bottom left.</li>
+        <li>Click on any previous commit to view exactly what was changed at that moment.</li>
+        <li>If you need to restore your whole project to an earlier commit in the terminal, you can run:
+          <pre>git checkout HEAD~1 .</pre>
+          <em>(This restores all files to the previous commit while keeping you safe).</em>
+        </li>
+      </ul>
+    </div>
+
+    <h2>🔍 6. System Testing Checklist (AC 2.3)</h2>
+    <p>Before submitting your project, systematically test every interactive feature in your browser and record the outcomes in <strong>Task 11</strong> of your Project Booklet:</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Test #</th>
+          <th>Feature</th>
+          <th>Action to Perform</th>
+          <th>Expected Outcome</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>1</strong></td>
+          <td><strong>Menu Filter</strong></td>
+          <td>Select 'Drinks' from the dropdown menu</td>
+          <td>Only drink items appear on the screen</td>
+        </tr>
+        <tr>
+          <td><strong>2</strong></td>
+          <td><strong>Subtotal Sum</strong></td>
+          <td>Add a £3.50 item and a £1.50 item to tray</td>
+          <td>Subtotal displays exactly £5.00</td>
+        </tr>
+        <tr>
+          <td><strong>3</strong></td>
+          <td><strong>Voucher Check</strong></td>
+          <td>Tick the £5.50 voucher box with a £6.00 order</td>
+          <td>Yellow warning alert displays that order exceeds limit</td>
+        </tr>
+        <tr>
+          <td><strong>4</strong></td>
+          <td><strong>Allergen Warning</strong></td>
+          <td>Add an item containing nuts</td>
+          <td>Alert banner displays warning about nuts in the order</td>
+        </tr>
+        <tr>
+          <td><strong>5</strong></td>
+          <td><strong>Healthy Promo</strong></td>
+          <td>Add 2 healthy items to tray</td>
+          <td>Green discount row appears applying 10% off subtotal</td>
+        </tr>
+        <tr>
+          <td><strong>6</strong></td>
+          <td><strong>Clear Tray</strong></td>
+          <td>Click the &times; button or 'Clear Tray'</td>
+          <td>Items are removed and totals reset back to £0.00</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="nav-footer">
+      <a href="guide-3-coding-challenges.html" class="secondary">&larr; Guide 3: Coding Challenges</a>
+      <a href="guide-1-research-and-design.html">Return to Guide 1 &uarr;</a>
+    </div>
+  </div>
+
+</body>
+</html>

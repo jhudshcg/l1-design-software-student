@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Canteen Ordering System</title>
+
+  <!-- Google Fonts for selectable style themes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Creepster&family=Fredoka:wght@400;600;700&family=Inter:wght@400;600;700&family=Montserrat:wght@400;700&family=Oswald:wght@500;700&family=Special+Elite&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<!-- 
+  DESIGN CHOICES (Customise by changing class names on <body>):
+  
+  1. Layout:     layout-grid | layout-flex | layout-sidebar-left | layout-single-column
+  2. Colour:     colour-light | colour-dark | colour-contrast
+  3. Theme:      theme-modern | theme-retro | theme-americana | theme-punk | theme-emo
+  4. Spacing:    spacing-compact | spacing-standard | spacing-spacious
+-->
+<body class="layout-grid colour-light theme-modern spacing-standard">
+
+  <header class="app-header">
+    <div class="header-container">
+      <h1 id="app-title">Campus Canteen</h1>
+      <p id="app-tagline">Fresh, affordable food made daily for students & staff</p>
+    </div>
+  </header>
+
+  <main class="app-main">
+    
+    <!-- Filter and search bar -->
+    <section class="filter-section">
+      <div class="filter-group">
+        <label for="filter-type">Filter Menu:</label>
+        <select id="filter-type">
+          <option value="all">All Items</option>
+          <option value="main">Mains</option>
+          <option value="snack">Snacks</option>
+          <option value="drink">Drinks</option>
+        </select>
+      </div>
+
+      <div class="filter-group">
+        <label class="checkbox-label">
+          <input type="checkbox" id="voucher-toggle">
+          Using £5.50 Student Meal Voucher
+        </label>
+      </div>
+    </section>
+
+    <!-- Menu grid/list of food items -->
+    <section class="menu-section">
+      <h2 class="section-heading">Menu Items</h2>
+      <div id="menu-container" class="menu-container">
+        <!-- Menu cards will be inserted here by JavaScript -->
+      </div>
+    </section>
+
+    <!-- Order summary and checkout -->
+    <aside class="order-section">
+      <h2 class="section-heading">Your Tray</h2>
+
+      <div id="order-items-list" class="order-items-list">
+        <p class="empty-tray-message">Your tray is empty. Click "+ Add to Tray" on any menu item!</p>
+      </div>
+
+      <div class="order-summary-box">
+        <div class="summary-row">
+          <span>Items count:</span>
+          <span id="summary-count">0</span>
+        </div>
+        <div class="summary-row">
+          <span>Subtotal:</span>
+          <span id="summary-subtotal">£0.00</span>
+        </div>
+        <div class="summary-row discount-row" id="discount-row" style="display: none;">
+          <span id="discount-label">Healthy Promo (10% off):</span>
+          <span id="summary-discount">-£0.00</span>
+        </div>
+        <hr class="summary-divider">
+        <div class="summary-row total-row">
+          <span>Total to Pay:</span>
+          <span id="summary-total">£0.00</span>
+        </div>
+      </div>
+
+      <!-- Alerts and status feedback box -->
+      <div id="status-feedback" class="status-feedback info">
+        <p id="status-message">Select items to begin your order.</p>
+      </div>
+
+      <div class="order-actions">
+        <button id="btn-clear" class="btn btn-secondary">Clear Tray</button>
+        <button id="btn-checkout" class="btn btn-primary">Place Order</button>
+      </div>
+    </aside>
+
+  </main>
+
+  <footer class="app-footer">
+    <p>&copy; 2026 Campus Canteen Project | Designed with HTML, CSS & JavaScript</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="util.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
