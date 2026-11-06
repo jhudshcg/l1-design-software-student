@@ -182,6 +182,7 @@ window.addEventListener('DOMContentLoaded', function() {
   var main=document.querySelector('main');
   var help=node('section','setup-help');help.id='setup-help';help.setAttribute('role','alert');help.hidden=true;main.prepend(help);
   var mode=node('p','logic-mode');mode.id='logic-mode';main.prepend(mode);
+  if(typeof challengeModes==='undefined') { mode.hidden=true; main.classList.add('visual-example'); }
   var items=typeof orderItems==='undefined'?null:orderItems;
   menuProblems=validateMenu(items);
   if(menuProblems.length) {

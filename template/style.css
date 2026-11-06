@@ -1,3 +1,5 @@
+@import url("fonts/fonts.css");
+
 /* ==========================================================================
    CANTEEN ORDERING SYSTEM - STYLESHEET
    Level 1 Digital Skills - Design Software (R/505/6389)
@@ -898,6 +900,25 @@ body.layout-single-column .menu-card-footer { gap:1rem;flex-wrap:wrap; }
 button:focus-visible,select:focus-visible,input:focus-visible,summary:focus-visible,a:focus-visible { outline:3px solid #d97706;outline-offset:4px; }
 button:disabled { opacity:.6;cursor:not-allowed; }
 
+/* MY DESIGN — add personal-design to the body class in index.html.
+   Edit one value, save and refresh. Choose values for your own audience.
+   Background paths are relative to this stylesheet: images/your-file.jpg.
+   High contrast below keeps its readable colours and removes background images. */
+body.personal-design .app-header {
+  background-color: #164d75;
+  color: #ffffff;
+  padding: 24px;
+  background-image: none;
+  background-size: cover;
+  background-position: center;
+}
+body.personal-design .app-header h1 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 36px;
+  color: inherit;
+  text-shadow: none;
+}
+
 /* High contrast takes priority over ALL theme and custom choices. */
 body.colour-contrast { --bg-page:#000;--bg-card:#000;--bg-header:#000;--bg-footer:#000;--bg-accent:#111;--text-main:#fff;--text-muted:#ff0;--text-header:#ff0;--text-footer:#fff;--border-color:#fff;--color-primary:#ff0;--color-primary-hover:#fff;--box-shadow:none; }
 body.colour-contrast .app-header { background:#000;color:#ff0;border-color:#fff; }
@@ -922,3 +943,5 @@ body.colour-dark .discount-row { color:#86efac; }
   .filter-section { padding:1rem; }.order-actions { flex-wrap:wrap; }
 }
 @media(prefers-reduced-motion:reduce) { *,*::before,*::after { transition:none !important; }.menu-card:hover,body.theme-punk .menu-card:hover { transform:none; } }
+
+body.colour-contrast .app-header { background-image:none; }

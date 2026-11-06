@@ -1,459 +1,178 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Guide 1: Research, Mood Board & Wireframing | L1 Design Software</title>
-  <style>
-    :root {
-      --primary: #0284c7;
-      --primary-dark: #0369a1;
-      --accent: #f59e0b;
-      --bg: #f0fdf4;
-      --card-bg: #ffffff;
-      --text: #0f172a;
-      --text-muted: #475569;
-      --border: #cbd5e1;
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-      background: linear-gradient(135deg, #f0fdf4 0%, #e0f2fe 100%);
-      color: var(--text);
-      line-height: 1.6;
-      padding: 2rem 1rem;
-    }
-    .guide-container {
-      max-width: 900px;
-      margin: 0 auto;
-      background: var(--card-bg);
-      padding: 2.5rem;
-      border-radius: 16px;
-      box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.05);
-      border: 1px solid var(--border);
-    }
-    .header-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      background: #0284c7;
-      color: #ffffff;
-      padding: 0.35rem 0.9rem;
-      border-radius: 20px;
-      font-weight: 700;
-      font-size: 0.85rem;
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
-      margin-bottom: 0.75rem;
-    }
-    h1 {
-      font-size: 2.2rem;
-      color: #0f172a;
-      margin-bottom: 0.5rem;
-      line-height: 1.2;
-    }
-    .subtitle {
-      font-size: 1.1rem;
-      color: var(--text-muted);
-      margin-bottom: 1.75rem;
-      padding-bottom: 1rem;
-      border-bottom: 2px solid #e2e8f0;
-    }
-    h2 {
-      font-size: 1.4rem;
-      color: #0369a1;
-      margin-top: 2rem;
-      margin-bottom: 0.75rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-    h3 {
-      font-size: 1.15rem;
-      color: #0f172a;
-      margin-top: 1.25rem;
-      margin-bottom: 0.5rem;
-    }
-    p, li {
-      margin-bottom: 0.75rem;
-      color: #334155;
-      font-size: 1rem;
-    }
-    ul, ol {
-      padding-left: 1.5rem;
-      margin-bottom: 1rem;
-    }
-    .callout {
-      background: #f8fafc;
-      border-left: 5px solid var(--primary);
-      padding: 1.25rem;
-      border-radius: 8px;
-      margin: 1.25rem 0;
-    }
-    .callout.tip {
-      background: #eff6ff;
-      border-left-color: #2563eb;
-    }
-    .callout.warning {
-      background: #fffbeb;
-      border-left-color: #f59e0b;
-    }
-    .callout.success {
-      background: #ecfdf5;
-      border-left-color: #10b981;
-    }
+<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Design Software — Start, research and plan</title><link rel="stylesheet" href="guide.css"><script defer src="guide-tools.js"></script></head><body><a class="no-print" href="#main">Skip to activities</a>
+<header>
+<p class="eyebrow">Level 1 · Canteen project</p>
 
-    /* Visual Mockups / Diagrams */
-    .visual-example-box {
-      background: #f8fafc;
-      border: 2px dashed #94a3b8;
-      border-radius: 12px;
-      padding: 1.5rem;
-      margin: 1.25rem 0;
-    }
-    .visual-title {
-      font-weight: 700;
-      color: #0f172a;
-      font-size: 1rem;
-      margin-bottom: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
+<h1>Design Software</h1>
 
-    /* Moodboard Mockup */
-    .mock-moodboard {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 1rem;
-      background: #ffffff;
-      padding: 1rem;
-      border-radius: 8px;
-      border: 1px solid #e2e8f0;
-    }
-    .palette-swatches {
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-      background: #f1f5f9;
-      padding: 0.75rem;
-      border-radius: 6px;
-    }
-    .swatch-item {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-size: 0.85rem;
-      font-weight: 600;
-    }
-    .swatch-color {
-      width: 28px;
-      height: 28px;
-      border-radius: 4px;
-      border: 1px solid rgba(0,0,0,0.1);
-    }
-    .mock-image-card {
-      background: #e2e8f0;
-      border-radius: 6px;
-      padding: 1rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      font-size: 0.85rem;
-      color: #475569;
-      font-weight: 600;
-      min-height: 110px;
-    }
-    .mock-font-card {
-      background: #f8fafc;
-      border: 1px solid #cbd5e1;
-      border-radius: 6px;
-      padding: 0.75rem;
-      font-size: 0.85rem;
-    }
+<p class="subtitle">Start, research and plan</p>
 
-    /* Wireframe Mockup */
-    .mock-wireframe {
-      background: #ffffff;
-      border: 2px solid #64748b;
-      border-radius: 8px;
-      padding: 1rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-      font-family: monospace;
-    }
-    .wf-header {
-      border: 2px dashed #94a3b8;
-      padding: 0.6rem;
-      text-align: center;
-      background: #f8fafc;
-      font-weight: bold;
-    }
-    .wf-body {
-      display: grid;
-      grid-template-columns: 2fr 1fr;
-      gap: 0.75rem;
-    }
-    .wf-menu-grid {
-      border: 2px dashed #94a3b8;
-      padding: 0.6rem;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0.5rem;
-    }
-    .wf-card {
-      border: 1px solid #64748b;
-      padding: 0.5rem;
-      background: #f8fafc;
-      font-size: 0.8rem;
-    }
-    .wf-img-box {
-      border: 1px solid #94a3b8;
-      height: 45px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: #e2e8f0;
-      margin-bottom: 0.3rem;
-      font-weight: bold;
-    }
-    .wf-tray {
-      border: 2px dashed #94a3b8;
-      padding: 0.6rem;
-      background: #f1f5f9;
-      font-size: 0.85rem;
-    }
+<nav aria-label="Guides"><a href="../index.html">Project hub + demos</a><a href="guide-1-research-and-design.html" aria-current="page">1 · Start / plan</a><a href="guide-2-customising-styles.html">2 · Design</a><a href="guide-3-coding-challenges.html">3 · Code</a><a href="git-and-testing-guide.html">Save / test</a></nav>
 
-    /* Tables */
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 1.25rem 0;
-      font-size: 0.95rem;
-    }
-    th, td {
-      border: 1px solid var(--border);
-      padding: 0.75rem;
-      text-align: left;
-    }
-    th {
-      background: #f1f5f9;
-      color: #0f172a;
-      font-weight: 700;
-    }
-    .step-box {
-      background: #ffffff;
-      border: 1px solid var(--border);
-      border-left: 4px solid var(--accent);
-      padding: 1.25rem;
-      border-radius: 8px;
-      margin-bottom: 1.25rem;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.03);
-    }
-    .step-number {
-      font-weight: bold;
-      color: #b45309;
-      font-size: 1.1rem;
-      margin-bottom: 0.5rem;
-    }
-    .nav-footer {
-      margin-top: 2.5rem;
-      padding-top: 1.5rem;
-      border-top: 2px solid #e2e8f0;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-weight: 700;
-    }
-    .nav-footer a {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      background: var(--primary);
-      color: #ffffff;
-      padding: 0.6rem 1.2rem;
-      border-radius: 8px;
-      text-decoration: none;
-      transition: background 0.2s;
-    }
-    .nav-footer a:hover {
-      background: var(--primary-dark);
-    }
-  </style>
-</head>
-<body>
+<p class="save">One change → Save → Refresh → Check. Use Ctrl on Windows, Cmd on Mac for save/find/undo.</p>
+</header>
 
-  <div class="guide-container">
-    <div class="header-badge">📖 Guide 1 of 4</div>
-    <h1>Research, Mood Board & Wireframing</h1>
-    <p class="subtitle">Step-by-step guidance on menu planning, image copyright, and visual interface design for Level 1 learners.</p>
+<main id="main"><section id="start" class="step"><h2>Start here</h2><p>Your teacher gives you the repository link, storage location and hand-in location. You need VS Code, Git and a web browser. If anything is missing, ask for the prepared class folder.</p><p>First explore the <a href="../index.html">two playable demos</a>. Then follow Start A and B below to make your own copy.</p></section><section id="setup" class="step">
+<h2>Start A · Open your own working copy</h2>
 
-    <h2>📋 1. Researching Your Canteen Menu</h2>
-    <p>Before designing your ordering app, you need to research and choose a balanced, appealing menu for your college canteen. You can record your research in an Excel spreadsheet or directly in your Project Booklet table.</p>
-    
-    <div class="step-box">
-      <div class="step-number">Minimum Menu Requirements Checklist:</div>
-      <ul>
-        <li>🥗 <strong>At least 4 Mains</strong> (e.g. chicken burger, veggie wrap, pizza slice, baked potato, chilli bowl)</li>
-        <li>🍪 <strong>At least 3 Snacks / Desserts</strong> (e.g. crisps, chocolate brownie, fresh fruit salad pot, flapjack)</li>
-        <li>🥤 <strong>At least 3 Drinks</strong> (e.g. orange sparkling water, chocolate milkshake, iced tea, hot coffee)</li>
-        <li>⭐ <strong>At least 3 Healthy Items</strong> (highlight items with low sugar, fresh fruit/veg, or high fibre)</li>
-        <li>⚠️ <strong>Allergy Information</strong> for each item (identify common allergens: gluten, dairy, nuts, eggs, fish, soy)</li>
-      </ul>
-    </div>
+<ol><li>Use the repository link and storage location your teacher gives you. In VS Code press Ctrl+Shift+P, choose <strong>Git: Clone</strong>, paste the link and choose the location. Open the cloned folder.</li><li>In the Explorer panel, copy everything <em>inside</em> <code>template</code> into <code>project</code>, including <code>images</code>.</li><li>Open <code>project/index.html</code> in your browser using File Explorer. Keep this tab and VS Code open.</li><li>Add two items. Check their total. Your starter should already work.</li></ol>
 
-    <h3>Example Spreadsheet Research Log</h3>
-    <p>Using a spreadsheet table like this makes it easy to organize your menu items, costs, and image filenames:</p>
+<div class="flow">
+<div class="tile"><code>template/</code><br>starter to keep</div>
+<span>copy →</span>
+<div class="tile"><code>project/</code><br>your editable work</div>
+<span>open →</span>
+<div class="tile"><code>project/index.html</code><br>browser preview</div>
+</div>
 
-    <table>
-      <thead>
-        <tr>
-          <th>Item Name</th>
-          <th>Category</th>
-          <th>Price (£)</th>
-          <th>Healthy Choice?</th>
-          <th>Allergens</th>
-          <th>Local Image File</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><strong>Crispy Chicken Burger</strong></td>
-          <td>Main</td>
-          <td>£3.50</td>
-          <td>No</td>
-          <td>Gluten, Eggs, Dairy</td>
-          <td><code>images/chicken-burger.jpg</code></td>
-        </tr>
-        <tr>
-          <td><strong>Mediterranean Veggie Wrap</strong></td>
-          <td>Main</td>
-          <td>£3.20</td>
-          <td><strong>Yes</strong></td>
-          <td>Gluten, Sesame</td>
-          <td><code>images/veggie-wrap.jpg</code></td>
-        </tr>
-        <tr>
-          <td><strong>Fresh Fruit Salad Pot</strong></td>
-          <td>Snack</td>
-          <td>£1.50</td>
-          <td><strong>Yes</strong></td>
-          <td>None</td>
-          <td><code>images/fruit-salad.jpg</code></td>
-        </tr>
-      </tbody>
-    </table>
+<p class="note">Already have work in project? Do not replace it. Open it and continue. If Git or cloning is unavailable, ask your teacher for the prepared working folder.</p>
 
-    <h2>📸 2. Understanding Image Copyright & Saving Files</h2>
-    <p>When creating digital designs, you must respect intellectual property and copyright laws. You cannot simply copy random photos from Google Images without permission.</p>
-    
-    <div class="callout tip">
-      <strong>Safe Royalty-Free Image Libraries:</strong>
-      <ul>
-        <li><strong>Unsplash</strong> (<a href="https://unsplash.com" target="_blank">unsplash.com</a>) &mdash; High-quality free stock photos.</li>
-        <li><strong>Pexels</strong> (<a href="https://pexels.com" target="_blank">pexels.com</a>) &mdash; Free food photography library.</li>
-        <li><strong>Pixabay</strong> (<a href="https://pixabay.com" target="_blank">pixabay.com</a>) &mdash; Free food graphics and icons.</li>
-      </ul>
-      <p style="margin-top: 0.5rem;"><strong>File Organisation Rule:</strong> Download your 10 images directly into your project's <code>images/</code> folder (e.g. <code>images/pizza.jpg</code>). Do not use external web links that can expire or break when offline!</p>
-    </div>
+<div class="setup-identity"><h3>First-time Git name/email setup</h3>
+<p>In VS Code open Terminal → New Terminal. Check it is in your cloned repository folder. Replace the quoted details below with your own. Run each line once.</p>
 
-    <h2>🎨 3. Creating Your Mood Board</h2>
-    <p>A <strong>mood board</strong> is a visual collage that establishes the creative direction, colour palette, typography, and mood of your canteen app before you begin styling.</p>
-    
-    <div class="step-box">
-      <div class="step-number">How to Build Your Mood Board:</div>
-      <ol>
-        <li>Pick a theme concept (e.g. <em>50s American Diner</em>, <em>Neon Street Food Punk</em>, <em>Fresh Green Garden Cafe</em>, or <em>Retro College Tuckshop</em>).</li>
-        <li>Select <strong>3–4 theme colours</strong> (e.g. Primary Red, Warm Cream, Charcoal, Mustard).</li>
-        <li>Collect 4–6 inspiration photos of food styling, menus, neon signs, or logos.</li>
-        <li>Arrange them on a digital canvas using <strong>provector.app</strong> or a graphics drawing tool.</li>
-        <li>Export your mood board (as PNG or JPG) and paste it into <strong>Task 7</strong> of your Project Booklet.</li>
-      </ol>
-    </div>
+<pre><code>git config user.name &quot;Your Full Name&quot;
+git config user.email &quot;your.college.email&quot;</code></pre>
+<p>These settings apply to this repository. Close the terminal afterwards; use Source Control for the project.</p>
+</div>
+</section>
 
-    <div class="visual-example-box">
-      <div class="visual-title">💡 Example: What a Basic Mood Board Looks Like</div>
-      <div class="mock-moodboard">
-        <div class="palette-swatches">
-          <div style="font-weight: bold; font-size: 0.85rem; margin-bottom: 0.25rem;">Theme Palette:</div>
-          <div class="swatch-item"><div class="swatch-color" style="background: #dc2626;"></div> Diner Red (#dc2626)</div>
-          <div class="swatch-item"><div class="swatch-color" style="background: #fef08a;"></div> Warm Mustard (#fef08a)</div>
-          <div class="swatch-item"><div class="swatch-color" style="background: #1e293b;"></div> Dark Slate (#1e293b)</div>
-          <div class="swatch-item"><div class="swatch-color" style="background: #ffffff;"></div> Crisp White (#ffffff)</div>
-        </div>
-        <div class="mock-image-card">
-          🍔 [ Photo Inspiration:<br>Retro Diner Burger & Fries ]
-        </div>
-        <div class="mock-image-card">
-          🥤 [ Photo Inspiration:<br>Classic Milkshake Glasses ]
-        </div>
-        <div class="mock-font-card">
-          <div style="font-weight: bold; margin-bottom: 0.25rem;">Typography Ideas:</div>
-          <p style="font-family: 'Impact', fantasy; font-size: 1.1rem; margin: 0;">BUNGEE / DINER</p>
-          <p style="font-family: sans-serif; font-size: 0.8rem; margin: 0;">Clean Sans-Serif Body Text</p>
-        </div>
-      </div>
-    </div>
+<section id="checkpoint" class="step">
+<h2>Start B · Save a checkpoint</h2>
 
-    <h2>📐 4. Wireframing Your User Interface (UI)</h2>
-    <p>A <strong>wireframe</strong> is a simplified visual blueprint showing where buttons, titles, cards, and summaries sit on the screen. It helps you organize your interface before touching code.</p>
+<div class="flow">
+<div class="tile"><strong>Save</strong>updates a file</div>
 
-    <div class="callout warning">
-      <strong>What a Wireframe IS and IS NOT:</strong>
-      <ul>
-        <li><strong>It DOES include:</strong> Rectangular element outlines, button shapes, labels, text placeholders, and crossed boxes <code>[ ✕ ]</code> to represent where pictures will go.</li>
-        <li><strong>It DOES NOT include:</strong> Finished colour schemes, real photos, detailed illustrations, or decorated fonts. Keep it simple and focused purely on page layout!</li>
-      </ul>
-    </div>
+<div class="tile"><strong>Commit</strong>records a checkpoint</div>
 
-    <div class="visual-example-box">
-      <div class="visual-title">💡 Example: What a Basic Wireframe Looks Like</div>
-      <div class="mock-wireframe">
-        <div class="wf-header">[ HEADER: Canteen Logo & Title Banner ]</div>
-        <div style="border: 1px dashed #94a3b8; padding: 0.4rem; text-align: center; font-size: 0.85rem;">[ FILTER BAR: Category Dropdown & Voucher Checkbox ]</div>
-        <div class="wf-body">
-          <div class="wf-menu-grid">
-            <div class="wf-card">
-              <div class="wf-img-box">[ ✕ Photo ]</div>
-              <strong>Card 1: Main</strong><br>
-              <small>Price: £3.50<br>[ + Add Button ]</small>
-            </div>
-            <div class="wf-card">
-              <div class="wf-img-box">[ ✕ Photo ]</div>
-              <strong>Card 2: Snack</strong><br>
-              <small>Price: £1.50<br>[ + Add Button ]</small>
-            </div>
-          </div>
-          <div class="wf-tray">
-            <strong>[ YOUR TRAY ]</strong><br>
-            - Item 1 (£3.50)<br>
-            - Item 2 (£1.50)<br>
-            <hr style="margin: 0.4rem 0;">
-            <strong>Total: £5.00</strong><br>
-            <small>[ Alert Feedback Box ]</small><br>
-            <div style="margin-top: 0.4rem; border: 1px solid #000; padding: 0.2rem; text-align: center; background: #e2e8f0;">[ Place Order Button ]</div>
-          </div>
-        </div>
-      </div>
-    </div>
+<div class="tile"><strong>Backup</strong>a separate safe copy</div>
+</div>
 
-    <div class="callout success">
-      <strong>Action Task:</strong> Open <strong>provector.app</strong>, sketch your mood board and wireframe, and paste them into <strong>Task 7</strong> of your Project Booklet!
-    </div>
+<ol><li>Save all edited files (File → Save All).</li><li>Open <strong>Source Control</strong> on the left. Click each changed file to review it.</li><li>Use the <strong>+</strong> beside your intended files to stage them. First checkpoint: include your project files and images.</li><li>Write a message such as “Added starter project”, then select <strong>Commit</strong>.</li></ol>
 
-    <div class="nav-footer">
-      <span>Ready to style your app?</span>
-      <a href="guide-2-customising-styles.html">Next: Guide 2 &mdash; Customising Styles &rarr;</a>
-    </div>
-  </div>
+<p>New files may show <strong>U</strong>; edited tracked files show <strong>M</strong>. Make another checkpoint after research, design and a useful correction.</p>
 
-</body>
-</html>
+<p class="check"><strong>Check:</strong> Your committed files leave the Changes list. View Source Control Graph or the file Timeline to see the checkpoint.</p>
 
-</body>
-</html>
+<p class="save">Booklet: Task 10. A local commit is not a separate backup; follow college storage instructions.</p>
+</section>
+
+
+<section id="explore" class="step">
+<h2>1 · Choose your audience</h2>
+
+<p>Open the <a href="../template/index.html">working starter</a> and the <a href="../examples/demo-americana-diner/index.html">diner</a> / <a href="../examples/demo-punk-eats/index.html">punk</a> examples. Add an item. Try a filter.</p>
+
+<div class="flow">
+<div class="tile">Who will use it?<strong>Your audience</strong></div>
+<span>→</span>
+<div class="tile">Where?<strong>Device + place</strong></div>
+<span>→</span>
+<div class="tile">What helps?<strong>Your choices</strong></div>
+</div>
+
+<p>Choose eight needed features. Think about browsing, choosing, reading and checking an order. Explain two choices.</p>
+
+<p class="save">Booklet: Tasks 1–2.</p>
+</section>
+
+<section id="research" class="step">
+<h2>2 · Collect your ten items</h2>
+
+<div class="flow">
+<div class="tile"><strong>4</strong>mains</div>
+
+<div class="tile"><strong>3</strong>snacks / desserts</div>
+
+<div class="tile"><strong>3</strong>drinks</div>
+
+<div class="tile"><strong>3+</strong>healthy choices across the menu</div>
+</div>
+
+<ol><li>Record each name, description, price, category, healthy choice and allergens in Task 3.</li><li>Record the source page or packaging for prices and food information.</li><li>Save an allowed image in <code>project/images/</code>. Record its filename, creator, source and reuse conditions in Task 4.</li></ol>
+
+<p class="note">Check the source for each item. “No allergens recorded” does not mean allergen-free. If information is unclear, ask your teacher.</p>
+
+<details><summary>Help: images and sources</summary>
+<p>Use your own images or a teacher-approved source. Check the image’s permission/credit requirements; a search result is not permission. Use a short name, such as <code>fruit-pot.jpg</code>. Keep the real extension. Do not just rename .webp to .jpg.</p>
+
+<p>Keep one clear source reference per item. More than one item can share a source. Record another constraint too, such as privacy or accuracy.</p>
+</details>
+
+<p class="save">Booklet: Tasks 3–4.</p>
+</section>
+
+<section id="plan" class="step">
+<h2>3 · Make two different plans</h2>
+
+<div class="row">
+<div>
+<h3>Mood board = the look</h3>
+
+<div class="visual">
+<div class="swatches"><span style="background:#184c3e"></span><span style="background:#f7e7bd"></span><span style="background:#ec9f52"></span></div>
+
+<p style="font-family:Georgia,serif;font-size:1.4em">Garden café</p>
+
+<p>Food photos + type samples + colours</p>
+</div>
+
+<p>In Word, add 2–4 images, colours and two font ideas. Explain the mood you want.</p>
+</div>
+
+<div>
+<h3>Wireframe = the positions</h3>
+
+<div class="wire" aria-label="Example layout diagram">
+<div class="wide">Heading</div>
+
+<div class="wide">Category + voucher</div>
+
+<div>Image / name / price<br>Menu cards</div>
+
+<div>Tray<br>Total<br>Order</div>
+</div>
+
+<p>Use Word shapes or paper. Label your heading, menu, controls and tray. Choose your own arrangement.</p>
+</div>
+</div>
+
+<p class="check"><strong>Check:</strong> Can a partner identify the style and find the main controls in your plan?</p>
+
+<p class="save">Booklet: Task 7. This diagram is an example, not a layout you must copy.</p>
+</section>
+
+<section id="menu" class="step">
+<h2>4 · Put one item into the app</h2>
+
+<ol><li>Open <code>project/app.js</code> in VS Code. Find <code>MENU</code> with Ctrl+F.</li><li>Replace one item’s values with your research. Keep the property names, commas and brackets.</li><li>Save. Refresh <code>project/index.html</code> in your browser.</li><li>Check that card against your research. Then repeat for the other items.</li></ol>
+
+<div class="flow">
+<div class="tile"><code>name</code> → heading<br><code>price</code> → £ display</div>
+<span>→</span>
+<div class="tile"><code>image</code> → photo<br><code>description</code> → card text</div>
+</div>
+
+<details><summary>Help: data types and image paths</summary>
+<pre><code>name: &quot;Fruit pot&quot;,
+price: 1.40,
+image: &quot;images/fruit-pot.jpg&quot;,
+type: &quot;snack&quot;,
+description: &quot;Fresh fruit pieces.&quot;,
+healthpromo: true,
+alergy_warning: []</code></pre>
+<p>Prices are numbers: no quotes or £. Use <code>main</code>, <code>snack</code> or <code>drink</code> in lower case. true/false have no quotes. Keep the starter’s spelling <code>alergy_warning</code>. Lists use square brackets; allergen words need quotes.</p>
+
+<p>A missing-photo panel? Check filename, extension and the images folder. Menu missing? Undo your last edit, save and refresh; check the message above the menu.</p>
+</details>
+
+<p class="check"><strong>Check:</strong> Your ten cards show the right text, price and local picture. Try each category filter.</p>
+
+<p class="save">Booklet: Task 5: show one card and explain the information you combined. Task 6: explain the file types.</p>
+</section>
+</main>
+
+<footer>
+<p>Your guide is for practice. Your booklet records your evidence.</p>
+<button type="button" data-print>Print this guide</button>
+<p class="small">Closed help stays out of print. Open a help or extension panel before printing to include it. Practice inputs reset when this page reloads.</p>
+</footer>
+</body></html>

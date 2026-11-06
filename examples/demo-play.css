@@ -1,0 +1,21 @@
+/* Exploration controls are separate from the original example design. */
+.demo-play { max-width:1300px;margin:.5rem auto;padding:.45rem 1rem;background:#f4f7fa;color:#18283a;border:1px solid #6b8196;font:16px/1.5 Arial,sans-serif; }
+.demo-play summary { cursor:pointer;font-weight:700; }
+.demo-play .demo-controls { display:flex;flex-wrap:wrap;gap:1rem;align-items:end;margin:.75rem 0; }
+.demo-play label { display:block;font-weight:bold; }
+.demo-play select { font:16px Arial,sans-serif;background:white;color:#18283a;border:1px solid #59758d;padding:.4rem;max-width:100%; }
+.demo-play button { font:16px Arial,sans-serif;padding:.5rem;background:#164d75;color:white;border:1px solid #164d75;border-radius:4px;cursor:pointer; }
+.demo-play a { color:#164d75;text-decoration:underline; }
+.demo-play :focus-visible { outline:3px solid #bf6500;outline-offset:3px; }
+@media print { .demo-play { display:none; } }
+
+/* Keep the original menu/tray layout; the student practice banner is not needed in demos. */
+.app-main.visual-example { grid-template-areas:'filter filter' 'menu order'; }
+body.layout-sidebar-left .app-main.visual-example { grid-template-areas:'filter filter' 'order menu'; }
+body.layout-single-column .app-main.visual-example { grid-template-areas:'filter' 'order' 'menu'; }
+.app-main.visual-example:has(.setup-help:not([hidden])) { grid-template-areas:'help help' 'filter filter' 'menu order'; }
+@media(max-width:850px) { .app-main.visual-example,body.layout-sidebar-left .app-main.visual-example,body.layout-single-column .app-main.visual-example { grid-template-areas:'filter' 'menu' 'order'; } }
+
+.student-note a { color:inherit;text-decoration:underline; }
+
+.demo-play pre { white-space:pre-wrap;overflow-wrap:anywhere;padding:.6rem;background:#102b43;color:white;font:15px/1.5 Consolas,monospace; }

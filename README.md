@@ -1,33 +1,23 @@
-# Design Software (R/505/6389)
+# Design Software — Canteen project
 
-## Canteen Ordering System — Level 1 Digital Skills
+Open [Guide 1: Start here](guides/guide-1-research-and-design.html) in your browser. It contains all essential setup instructions, then research and planning.
 
-Welcome to the **Canteen Ordering System** web design and programming project!
+Use the [project hub](index.html) to access both playable demos and all guides.
 
----
+- [Guide 2: Design and live CSS](guides/guide-2-customising-styles.html)
+- [Guide 3: JavaScript practice](guides/guide-3-coding-challenges.html)
+- [Save, test and submit](guides/git-and-testing-guide.html)
 
-## 📁 What's Inside This Repository:
+Keep the resource folder together. Edit your copy in project/; keep template/ as the starter.
 
-* **`template/`** — Starter files (`index.html`, `style.css`, `app.js`, `util.js`, and `images/`). Keep this folder as your clean backup copy.
-* **`project/`** — Your working folder. This is where you will build and customize your own canteen ordering system.
-* **`examples/`** — Two completed exemplar projects for inspiration:
-  * `demo-americana-diner/` — Retro 50s Diner theme with multi-column grid layout.
-  * `demo-punk-eats/` — Street food punk theme with left-sidebar tray layout.
-* **`guides/`** — Step-by-step visual guides and cheat sheets:
-  * `git-and-testing-guide.html` — How to use Git version control and test your app.
-  * `guide-1-research-and-design.html` — Menu research, copyright, mood boards & wireframing.
-  * `guide-2-customising-styles.html` — Web building blocks, CSS classes, and themes.
-  * `guide-3-coding-challenges.html` — JavaScript coding challenges and snippet bank.
+## Teacher delivery notes
 
----
+Current booklet: ../src/booklet-design-software.docx, built from its matching Markdown. Older root/src booklet copies are historical. The booklet collects evidence; guides teach practical skills.
 
-## 🚀 How to Get Started:
+Confirm Git/VS Code and storage arrangements on college machines, give students the repository link and hand-in location, and check existing sample image permissions before distribution. Students replace sample menu information/images with their own sourced research. The teacher selects cover artwork; the draft cover reserves this space.
 
-1. **Set Up Git:** Open `guides/git-and-testing-guide.html` in your browser and follow **Step 2** (you already did step 1 to clone this repo) to set your name and email in the VS Code terminal:
-   ```bash
-   git config user.name "Your Name"
-   git config user.email "your.student.email@college.ac.uk"
-   ```
-2. **Copy Starter Files to `project/`:** Copy everything inside the `template/` folder (including the `images/` folder) and paste it into the `project/` folder.
-3. **Open Your App:** Double-click `project/index.html` (or right-click and open with your browser) to see your app running!
-4. **Follow the Guides:** Work through the guides in order to research your menu, style your theme, and complete the coding challenges.
+Guides work locally without libraries or font downloads. Original theme fonts are bundled in template/fonts with their licences; copy that folder with the starter. Practice inputs are temporary. Print closed guides for the short route; open help/extension sections to include them. The CSS lab does not modify project files.
+
+The starter uses supplied logic until a student turns on a challenge switch. Fixed checks test their functions directly. Working fallback is labelled if a function throws or returns an invalid value. A valid wrong answer is left for the learner to investigate. Never treat supplied-function results as evidence of independent programming.
+
+The main design evidence includes researched content, a mood board, a wireframe, purposeful HTML/CSS choices, direct CSS editing and corrections. All coding challenges and the discount are not prerequisites for achieving the unit criteria. Capture individual learning and support honestly.
