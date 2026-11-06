@@ -1,22 +1,15 @@
-/**
- * CANTEEN ORDERING SYSTEM - MAIN APP SCRIPT (app.js)
- * Level 1 Digital Skills - Design Software Unit (R/505/6389)
- * 
- * STUDENT NAME: ________________________
- * DATE: ________________________________
- * 
- * INSTRUCTIONS:
- * 1. Research 10 food & drink items with prices, images, and allergy information.
- * 2. Update the 'orderItems' array below with your research.
- * 3. Complete the 5 coding challenges marked with TODO comments.
- */
+/* DESIGN SOFTWARE — YOUR EDITING FILE
+   Work in project/app.js. Search for the activity marker from the guide.
+   Make one change → Save → Refresh → Check.
+*/
 
-/* ==========================================================================
-   PART 1: MENU DATA (Research at least 10 items)
-   
-   Available types: "main", "snack", "drink"
-   Possible allergens: 'nuts', 'gluten', 'dairy', 'soy', 'eggs', 'fish', 'sesame', 'sulphites'
-   ========================================================================== */
+// MESSAGE: change only the words between the quotes. Guide 3, activity A.
+var orderMessage = "Thank you! Your practice order is ready.";
+
+// MENU: replace the sample information with your ten researched items.
+// Keep property names, commas and brackets. Prices are numbers: 3.50, not "£3.50".
+// type is "main", "snack" or "drink". healthpromo is true or false.
+// Keep the starter's spelling alergy_warning. An empty allergy list is [].
 var orderItems = [
   {
     name: "Classic Chicken Burger",
@@ -110,123 +103,50 @@ var orderItems = [
   }
 ];
 
+// TRY MY CODE: switch on ONE activity when its guide tells you to.
+// false = supplied working logic. true = try your function below.
+// Turn a switch back to false to restore supplied logic without deleting your work.
+// A missing quote/bracket can stop this file loading: undo your last edit first.
+var challengeModes = {
+  subtotal: false,
+  budget: false,
+  allergy: false,
+  promotion: false
+};
 
-/* ==========================================================================
-   PART 2: CODING CHALLENGES
-   Complete the tasks below to make your canteen ordering system work!
-   ========================================================================== */
+// EXTENSION: false = no promotion. Set true only when trying the discount activity.
+var useHealthyPromotion = false;
 
-/**
- * CHALLENGE 1: CALCULATE SUBTOTAL (Snippet Bank Practice)
- * -------------------------------------------------------------
- * Goal: Loop through all items in the 'tray' array and add up their prices.
- * 
- * SNIPPET BANK REFERENCE (from Guide 3):
- *   var total = 0.0;
- *   for (var i = 0; i < tray.length; i++) {
- *     total += tray[i].price;
- *   }
- *   return total;
- */
-function calculateSubtotal(tray) {
-  var total = 0.0;
-
-  // TODO 1: Complete the calculation loop below:
+// B — SUBTOTAL. Predict the total, then choose what to add on the marked line.
+function studentSubtotal(tray) {
+  var total = 0;
   for (var i = 0; i < tray.length; i++) {
-    // Replace '0' with tray[i].price to add each item price to total:
-    total += 0; 
+    total += 0; // B: replace only this 0. Keep the supplied loop.
   }
-
   return total;
 }
 
-
-/**
- * CHALLENGE 2: BUDGET CHECK FOR £5.50 VOUCHER (Fill-in-the-blank)
- * -------------------------------------------------------------
- * Goal: If totalAmount is GREATER than voucherLimit, return a warning string.
- */
-function checkBudgetLimit(totalAmount) {
+// C — VOUCHER. Compare the amount to pay with the voucher limit.
+function studentOverBudget(totalAmount) {
   var voucherLimit = 5.50;
-
-  // TODO 2: Replace '==' with the correct comparison operator ( > or < )
-  if (totalAmount == voucherLimit) {
-    return "Warning: Your order of £" + totalAmount.toFixed(2) + " exceeds the £5.50 meal voucher limit!";
-  }
-
-  return ""; // No warning if within budget
+  return totalAmount == voucherLimit; // C: choose a comparison operator.
 }
 
-
-/**
- * CHALLENGE 3: ALLERGY WARNING CHECK (Fill-in-the-blank)
- * -------------------------------------------------------------
- * Goal: Check if any item in tray contains 'nuts'.
- */
-function checkOrderAllergies(tray) {
-  for (var i = 0; i < tray.length; i++) {
-    var item = tray[i];
-    
-    // TODO 3: Replace 'BLANK_ALLERGEN' with the allergy string 'nuts'
-    if (item.alergy_warning.includes('BLANK_ALLERGEN')) {
-      return "Allergy Alert: " + item.name + " contains nuts! Please check ingredients.";
-    }
-  }
-
-  return ""; // No allergy warnings found
+// D — ALLERGY LIST. Does this list contain the word you are looking for?
+function studentHasNuts(allergens) {
+  return allergens.includes("CHOOSE"); // D: replace the word inside the quotes.
 }
 
-
-/**
- * CHALLENGE 4: HEALTHY PROMOTION DISCOUNT (Snippet Bank Practice)
- * -------------------------------------------------------------
- * Goal: If 2 or more items have healthpromo == true, give a 10% discount (subtotal * 0.10).
- */
-function checkHealthyPromotion(tray, subtotal) {
+// E — DISCOUNT EXTENSION. Work through E1 and E2 separately in the guide.
+function studentDiscount(tray, subtotal) {
   var healthyCount = 0;
-
-  // TODO 4: Count how many healthy items are in the tray
   for (var i = 0; i < tray.length; i++) {
     if (tray[i].healthpromo == true) {
-      // Add 1 to healthyCount:
-      healthyCount += 0;
+      healthyCount += 0; // E1: choose how much to increase the count.
     }
   }
-
-  // TODO 5: If healthyCount is 2 or more, calculate 10% discount:
   if (healthyCount >= 2) {
-    return subtotal * 0.0; // Change 0.0 to 0.10 for 10% discount
+    return subtotal * 0; // E2: choose the fraction that gives a 10% discount.
   }
-
-  return 0; // No discount
-}
-
-
-/**
- * CALCULATE FINAL TOTAL TO PAY
- * -------------------------------------------------------------
- * Takes the subtotal and subtracts any discount amount.
- */
-function calculateFinalTotal(subtotal, discountAmount) {
-  var finalTotal = subtotal - discountAmount;
-  
-  // Make sure total never goes below £0.00
-  if (finalTotal < 0) {
-    finalTotal = 0;
-  }
-
-  return finalTotal;
-}
-
-
-/**
- * CHALLENGE 5: CHECKOUT CONFIRMATION (Fill-in-the-blank)
- * -------------------------------------------------------------
- * Goal: Create a friendly order confirmation message.
- */
-function handleCheckout(tray) {
-  // TODO 6: Customise your message below:
-  var customerMessage = "Order Placed! Thank you for ordering " + tray.length + " item(s).";
-  
-  updateFeedback(customerMessage, "success");
+  return 0;
 }

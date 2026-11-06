@@ -1,14 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Riot Bites - Street Food Ordering</title>
-
-  <!-- Google Fonts for Punk Aesthetic -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Creepster&family=Fredoka:wght@400;600;700&family=Inter:wght@400;600;700&family=Montserrat:wght@400;700&family=Oswald:wght@500;700&family=Special+Elite&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="../../template/style.css">
 </head>
@@ -33,6 +28,8 @@
       <p id="app-tagline">Loud flavours, fiery street snacks & cold brews for the campus crew</p>
     </div>
   </header>
+
+  <p class="student-note">Visual example using supplied working logic. Classroom practice only. No orders or payments are sent. Check food information against your research sources.</p>
 
   <main class="app-main">
     
@@ -92,7 +89,7 @@
         </div>
       </div>
 
-      <div id="status-feedback" class="status-feedback info">
+      <div id="status-feedback" class="status-feedback info" role="status" aria-live="polite" aria-atomic="true">
         <p id="status-message">Ready when you are. Pick your bites!</p>
       </div>
 

@@ -104,6 +104,6 @@ var orderItems = [
   }
 ];
 
-// NOTE: This demo showcases theme styling and data layout.
-// Student coding challenge functions (calculating subtotal, budget checks, etc.)
-// are left for students to solve in their own project templates.
+// Visual example: supplied working logic lives in template/util.js.
+// Student challenge functions are not included in this example.
+var orderMessage = "Thanks for exploring this example. No real order has been sent.";

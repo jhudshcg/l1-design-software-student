@@ -1,14 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Canteen Ordering System</title>
-
-  <!-- Google Fonts for selectable style themes -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Creepster&family=Fredoka:wght@400;600;700&family=Inter:wght@400;600;700&family=Montserrat:wght@400;700&family=Oswald:wght@500;700&family=Special+Elite&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="style.css">
 </head>
@@ -20,15 +15,24 @@
   2. Colour:     colour-light | colour-dark | colour-contrast
   3. Theme:      theme-modern | theme-retro | theme-americana | theme-punk | theme-emo
   4. Spacing:    spacing-compact | spacing-standard | spacing-spacious
+  OPTIONAL: add ONE choice from any group below (Guide 2).
+  Heading: heading-clean | heading-bold | heading-serif
+  Body: body-clear | body-rounded | body-mono
+  Accent: accent-blue | accent-purple | accent-green | accent-orange
+  Cards: cards-square | cards-soft | cards-round
 -->
 <body class="layout-grid colour-light theme-modern spacing-standard">
 
   <header class="app-header">
     <div class="header-container">
+      <!-- NAME: change your app name below. -->
       <h1 id="app-title">Campus Canteen</h1>
+      <!-- TAGLINE: change the short description below. -->
       <p id="app-tagline">Fresh, affordable food made daily for students & staff</p>
     </div>
   </header>
+
+  <p class="student-note">Classroom practice only. No orders or payments are sent. Check food information against your research sources.</p>
 
   <main class="app-main">
     
@@ -89,7 +93,7 @@
       </div>
 
       <!-- Alerts and status feedback box -->
-      <div id="status-feedback" class="status-feedback info">
+      <div id="status-feedback" class="status-feedback info" role="status" aria-live="polite" aria-atomic="true">
         <p id="status-message">Select items to begin your order.</p>
       </div>
 

@@ -847,3 +847,78 @@ select, input[type="text"] {
     grid-row: auto;
   }
 }
+
+/* ======================================================================
+   STUDENT DESIGN CHOICES — use ONE class from each group on <body>.
+   Presets use local system fonts so the app works without font downloads.
+   ====================================================================== */
+body.heading-clean { --font-heading: Arial, Helvetica, sans-serif; }
+body.heading-bold { --font-heading: Impact, 'Arial Black', sans-serif; }
+body.heading-serif { --font-heading: Georgia, 'Times New Roman', serif; }
+body.body-clear { --font-body: Arial, Helvetica, sans-serif; }
+body.body-rounded { --font-body: 'Trebuchet MS', Arial, sans-serif; }
+body.body-mono { --font-body: 'Courier New', monospace; }
+body.accent-blue { --color-primary:#075985; --color-primary-hover:#0c4a6e; }
+body.accent-purple { --color-primary:#6b21a8; --color-primary-hover:#581c87; }
+body.accent-green { --color-primary:#166534; --color-primary-hover:#14532d; }
+body.accent-orange { --color-primary:#9a3412; --color-primary-hover:#7c2d12; }
+body.cards-square { --border-radius:0; }
+body.cards-soft { --border-radius:18px; }
+body.cards-round { --border-radius:30px; }
+body[class*='accent-'] .btn-primary { background:var(--color-primary);color:#fff; }
+body[class*='accent-'] .btn-primary:hover { background:var(--color-primary-hover); }
+/* A custom accent also colours the heading strip. */
+body[class*='accent-'] .app-header { background:var(--color-primary);color:#fff; }
+body[class*='heading-'] .app-header h1 { text-shadow:none; }
+body[class*='cards-'] .menu-card { border-radius:var(--border-radius); }
+body[class*='cards-'] .btn { border-radius:var(--border-radius); }
+
+/* Extra support areas are full-width; named areas keep every layout stable. */
+.app-main { grid-template-areas:'mode mode' 'help help' 'filter filter' 'menu order' 'practice practice'; }
+.logic-mode { grid-area:mode; font-size:.95rem; padding:.75rem 1rem; border:2px solid var(--border-color);border-radius:8px;background:var(--bg-card); }
+.setup-help { grid-area:help; padding:1rem 1.5rem;border:3px solid #b45309;background:#fffbeb;color:#172033; }
+.setup-help ul { padding-left:1.5rem; }
+[hidden] { display:none !important; }
+.filter-section { grid-area:filter; }
+.menu-section { grid-area:menu !important; }
+.order-section { grid-area:order !important; }
+.practice-controls { grid-area:practice; padding:1rem;background:var(--bg-card);border:2px solid var(--border-color);border-radius:8px; }
+.practice-controls summary { cursor:pointer;font-weight:bold; }
+.practice-controls p { margin:.75rem 0; }
+.practice-controls button { margin:.5rem .5rem .5rem 0; }
+.check-results { overflow-x:auto; }
+.check-table { width:100%;border-collapse:collapse; }
+.check-table th,.check-table td { border:1px solid var(--text-muted);padding:.6rem;text-align:left; }
+#status-message { white-space:pre-line; }
+.student-note { max-width:1300px;margin:auto;padding:.5rem 1.5rem;font-size:.9rem; }
+body.layout-sidebar-left .app-main { grid-template-areas:'mode mode' 'help help' 'filter filter' 'order menu' 'practice practice'; }
+body.layout-single-column .app-main { grid-template-areas:'mode' 'help' 'filter' 'order' 'menu' 'practice'; }
+body.layout-single-column .menu-card-content { min-width:0; }
+body.layout-single-column .menu-card-footer { gap:1rem;flex-wrap:wrap; }
+button:focus-visible,select:focus-visible,input:focus-visible,summary:focus-visible,a:focus-visible { outline:3px solid #d97706;outline-offset:4px; }
+button:disabled { opacity:.6;cursor:not-allowed; }
+
+/* High contrast takes priority over ALL theme and custom choices. */
+body.colour-contrast { --bg-page:#000;--bg-card:#000;--bg-header:#000;--bg-footer:#000;--bg-accent:#111;--text-main:#fff;--text-muted:#ff0;--text-header:#ff0;--text-footer:#fff;--border-color:#fff;--color-primary:#ff0;--color-primary-hover:#fff;--box-shadow:none; }
+body.colour-contrast .app-header { background:#000;color:#ff0;border-color:#fff; }
+body.colour-contrast .app-header h1 { text-shadow:none; }
+body.colour-contrast .menu-card { transform:none;box-shadow:none;background:#000;border:2px solid #fff; }
+body.colour-contrast .section-heading { color:#ff0;border-color:#fff; }
+body.colour-contrast .btn-primary,body.colour-contrast .btn-primary:hover { background:#ff0;color:#000;border:2px solid #fff;box-shadow:none; }
+body.colour-contrast .btn-secondary { background:#000;color:#fff;border:2px solid #fff;box-shadow:none; }
+body.colour-contrast .menu-card-allergies { color:#ff0; }
+body.colour-contrast .badge-health { background:#fff;color:#000;border:2px solid #fff; }
+body.colour-contrast .discount-row { color:#ff0; }
+body.colour-dark .menu-card-allergies { color:#fca5a5; }
+body.colour-dark .discount-row { color:#86efac; }
+@media(max-width:850px) {
+  .app-main,body.layout-sidebar-left .app-main,body.layout-single-column .app-main { grid-template-columns:minmax(0,1fr) !important;grid-template-areas:'mode' 'help' 'filter' 'menu' 'order' 'practice'; }
+  #menu-container,body.layout-grid #menu-container { grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr)); }
+}
+@media(max-width:580px) {
+  body.layout-single-column .menu-card { flex-direction:column;align-items:stretch; }
+  body.layout-single-column .menu-card-img-wrapper { width:100%;min-width:0;height:160px; }
+  .app-header { padding:1.25rem; }.app-header h1 { overflow-wrap:anywhere; }
+  .filter-section { padding:1rem; }.order-actions { flex-wrap:wrap; }
+}
+@media(prefers-reduced-motion:reduce) { *,*::before,*::after { transition:none !important; }.menu-card:hover,body.theme-punk .menu-card:hover { transform:none; } }
