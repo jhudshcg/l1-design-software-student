@@ -1,6 +1,6 @@
 # Design Software — Canteen project
 
-Open [Guide 1: Start here](guides/guide-1-research-and-design.html) in your browser. It contains all essential setup instructions, then research and planning.
+Start with your teacher’s web link to Guide 1. Keep the guide open in your browser, then follow its repository link and VS Code cloning steps to make your own copy. Continue with the first checkpoint, research and planning. If you already have the resource folder, open [Guide 1: Start here](guides/guide-1-research-and-design.html) in your browser.
 
 Use the [project hub](index.html) to access both playable demos and all guides.
 
@@ -14,7 +14,7 @@ Keep the resource folder together. Edit your copy in project/; keep template/ as
 
 Current booklet: ../src/booklet-design-software.docx, built from its matching Markdown. Older root/src booklet copies are historical. The booklet collects evidence; guides teach practical skills.
 
-Confirm Git/VS Code and storage arrangements on college machines, give students the repository link and hand-in location, and check existing sample image permissions before distribution. Students replace sample menu information/images with their own sourced research. The teacher selects cover artwork; the draft cover reserves this space.
+Confirm Git/VS Code and OneDrive access on college machines. Share a web link to the rendered Guide 1 page (for example, on GitHub Pages), not GitHub’s HTML source-file view. Guide 1 contains the clone URL and setup steps, so students can read it before cloning. Students first open their existing OneDrive/L1 Digital folder in VS Code, then clone into it and open the resulting repository subfolder. They save their own teacher-supplied Word booklet in that repository folder, alongside project, template and guides. Give students their hand-in location, and check existing sample image permissions before distribution. Students replace sample menu information/images with their own sourced research. The teacher selects cover artwork; the draft cover reserves this space.
 
 Guides work locally without libraries or font downloads. Original theme fonts are bundled in template/fonts with their licences; copy that folder with the starter. Practice inputs are temporary. Print closed guides for the short route; open help/extension sections to include them. The CSS lab does not modify project files.
 

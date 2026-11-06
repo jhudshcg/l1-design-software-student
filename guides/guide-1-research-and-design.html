@@ -1,4 +1,4 @@
-<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Design Software — Start, research and plan</title><link rel="stylesheet" href="guide.css"><script defer src="guide-tools.js"></script></head><body><a class="no-print" href="#main">Skip to activities</a>
+<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Design Software — Start, research and plan</title><link rel="stylesheet" href="guide.css"><script defer src="guide-tools.js"></script></head><body class="guide-start"><a class="no-print" href="#main">Skip to activities</a>
 <header>
 <p class="eyebrow">Level 1 · Canteen project</p>
 
@@ -8,13 +8,43 @@
 
 <nav aria-label="Guides"><a href="../index.html">Project hub + demos</a><a href="guide-1-research-and-design.html" aria-current="page">1 · Start / plan</a><a href="guide-2-customising-styles.html">2 · Design</a><a href="guide-3-coding-challenges.html">3 · Code</a><a href="git-and-testing-guide.html">Save / test</a></nav>
 
-<p class="save">One change → Save → Refresh → Check. Use Ctrl on Windows, Cmd on Mac for save/find/undo.</p>
+<p class="save">One change → Save → Refresh → Check.</p>
 </header>
 
-<main id="main"><section id="start" class="step"><h2>Start here</h2><p>Your teacher gives you the repository link, storage location and hand-in location. You need VS Code, Git and a web browser. If anything is missing, ask for the prepared class folder.</p><p>First explore the <a href="../index.html">two playable demos</a>. Then follow Start A and B below to make your own copy.</p></section><section id="setup" class="step">
-<h2>Start A · Open your own working copy</h2>
+<main id="main">
+<section id="start" class="step">
+<h2>Start here · Guide first, then your own copy</h2>
+<p>Open this guide from your class web link. Keep it open in your browser while you work in VS Code.</p>
+<p>First try the <a href="../index.html">two playable demos</a>, then use your browser’s Back button to return here. Follow Start A, then Start B below.</p>
+<p>You need VS Code, Git and a browser. Save your work in <code>OneDrive\L1 Digital</code>. Your teacher will tell you where to hand it in. If software is missing, ask for help.</p>
+<p class="note">Already made your copy? Open your existing <code>l1-design-software-student</code> folder in VS Code. Keep your work and continue from where you stopped.</p>
+</section>
+<section id="setup" class="step">
+<h2>Start A · Copy the project with VS Code</h2>
+<p><strong>Clone</strong> means copy the project folder from GitHub onto your computer. Do this once.</p>
+<h3>First · Open your OneDrive folder in VS Code</h3>
+<ol>
+<li>In <strong>File Explorer</strong>, open your college <strong>OneDrive</strong>, then your existing <code>L1 Digital</code> folder.</li>
+<li>In <strong>VS Code</strong>, choose <strong>File → Open Folder</strong>. Select that <code>OneDrive\L1 Digital</code> folder and choose <strong>Select Folder</strong>.</li>
+</ol>
+<p class="check"><strong>Check:</strong> VS Code’s Explorer shows <code>L1 Digital</code> as the open folder.</p>
+<h3>Then · Clone into that folder</h3>
+<p>Repository link — select and copy the whole line below (Ctrl+C):</p>
+<pre><code>https://github.com/jhudshcg/l1-design-software-student.git</code></pre>
+<ol>
+<li>In <strong>VS Code</strong>, press Ctrl+Shift+P. Type <strong>Git: Clone</strong> and select it.</li>
+<li>Paste the repository link above (Ctrl+V), then press Enter.</li>
+<li>When asked where to clone, select the same <code>OneDrive\L1 Digital</code> folder. VS Code creates a new <code>l1-design-software-student</code> folder inside it.</li>
+<li>When cloning finishes, select <strong>Open</strong> to open the new <code>l1-design-software-student</code> folder directly in VS Code. If no prompt appears, use <strong>File → Open Folder</strong> and select <code>OneDrive\L1 Digital\l1-design-software-student</code>.</li>
+</ol>
+<p class="check"><strong>Check:</strong> VS Code’s Explorer now shows <code>l1-design-software-student</code> as the open folder, with <code>guides</code>, <code>template</code> and <code>project</code> inside it. Your other unit folders should no longer be listed. Keep this guide open in your browser.</p>
 
-<ol><li>Use the repository link and storage location your teacher gives you. In VS Code press Ctrl+Shift+P, choose <strong>Git: Clone</strong>, paste the link and choose the location. Open the cloned folder.</li><li>In the Explorer panel, copy everything <em>inside</em> <code>template</code> into <code>project</code>, including <code>images</code>.</li><li>Open <code>project/index.html</code> in your browser using File Explorer. Keep this tab and VS Code open.</li><li>Add two items. Check their total. Your starter should already work.</li></ol>
+<h3>Save your booklet here too</h3>
+<p>Open the Word booklet your teacher gives you. Use <strong>File → Save As</strong> to save your own copy inside <code>OneDrive\L1 Digital\l1-design-software-student</code>, alongside <code>project</code>, <code>template</code> and <code>guides</code>. Keep using this copy to record your work.</p>
+
+<h3>Prepare your editable app</h3>
+<ol><li>In the VS Code Explorer, copy everything <em>inside</em> <code>template</code> into <code>project</code>, including the <code>images</code> and <code>fonts</code> folders.</li><li>In File Explorer, open your saved <code>l1-design-software-student</code> folder, then <code>project</code>. Open <code>index.html</code> in your browser.</li><li>Add two items and check their total. Your starter should already work.</li></ol>
+<p class="save">Keep two browser tabs: this guide for instructions, and your local app for checking changes. Edit files in <code>project</code> using VS Code; save, then refresh your local app tab.</p>
 
 <div class="flow">
 <div class="tile"><code>template/</code><br>starter to keep</div>
@@ -24,7 +54,7 @@
 <div class="tile"><code>project/index.html</code><br>browser preview</div>
 </div>
 
-<p class="note">Already have work in project? Do not replace it. Open it and continue. If Git or cloning is unavailable, ask your teacher for the prepared working folder.</p>
+<p class="note">Already have work in <code>project</code>? Do not replace it. If Git or cloning is unavailable, ask your teacher for the prepared working folder and continue from “Prepare your editable app”.</p>
 
 <div class="setup-identity"><h3>First-time Git name/email setup</h3>
 <p>In VS Code open Terminal → New Terminal. Check it is in your cloned repository folder. Replace the quoted details below with your own. Run each line once.</p>
@@ -53,6 +83,19 @@ git config user.email &quot;your.college.email&quot;</code></pre>
 <p class="check"><strong>Check:</strong> Your committed files leave the Changes list. View Source Control Graph or the file Timeline to see the checkpoint.</p>
 
 <p class="save">Booklet: Task 10. A local commit is not a separate backup; follow college storage instructions.</p>
+<div class="interactive practice-panel" id="storage-practice" hidden>
+<h3>Quick check · Save, Commit or Backup?</h3>
+<p>Choose the action each situation needs. Read the feedback, then try again if needed. These choices are practice only.</p>
+<label for="storage-save">1. You changed a price in VS Code. Before refreshing your app, what updates the file on disk?</label>
+<select id="storage-save" data-storage-answer="save" aria-describedby="storage-save-feedback"><option value="">Choose an action</option><option value="save">Save</option><option value="commit">Commit</option><option value="backup">Backup</option></select>
+<p id="storage-save-feedback" class="feedback" role="status"></p>
+<label for="storage-commit">2. You saved and tested your menu. What records this working version with a message in Git history?</label>
+<select id="storage-commit" data-storage-answer="commit" aria-describedby="storage-commit-feedback"><option value="">Choose an action</option><option value="save">Save</option><option value="commit">Commit</option><option value="backup">Backup</option></select>
+<p id="storage-commit-feedback" class="feedback" role="status"></p>
+<label for="storage-backup">3. Your project folder could be lost. What keeps a separate safe copy, following college instructions?</label>
+<select id="storage-backup" data-storage-answer="backup" aria-describedby="storage-backup-feedback"><option value="">Choose an action</option><option value="save">Save</option><option value="commit">Commit</option><option value="backup">Backup</option></select>
+<p id="storage-backup-feedback" class="feedback" role="status"></p>
+</div>
 </section>
 
 
@@ -129,9 +172,11 @@ git config user.email &quot;your.college.email&quot;</code></pre>
 <div>Image / name / price<br>Menu cards</div>
 
 <div>Tray<br>Total<br>Order</div>
+
+<div class="wide">Footer</div>
 </div>
 
-<p>Use Word shapes or paper. Label your heading, menu, controls and tray. Choose your own arrangement.</p>
+<p>Use Word shapes or paper. Label your heading, menu, controls, tray and footer. Choose your own arrangement.</p>
 </div>
 </div>
 
@@ -143,7 +188,47 @@ git config user.email &quot;your.college.email&quot;</code></pre>
 <section id="menu" class="step">
 <h2>4 · Put one item into the app</h2>
 
+<div class="interactive practice-panel" id="menu-practice" hidden>
+<h3>Try a value change here first</h3>
+<p>Predict which part of the card will change if you edit <code>name</code>. Change only the name, then compare the code and card. Next, try a different price.</p>
+<p class="note">Temporary practice: this does not change or save your project files. Reset restores the example.</p>
+<div class="menu-lab">
+<div>
+<label for="menu-name">Name</label>
+<input id="menu-name" type="text" value="Chocolate cake slice" maxlength="60" aria-describedby="menu-practice-feedback">
+<label for="menu-price">Price in pounds (number only)</label>
+<input id="menu-price" type="text" inputmode="decimal" value="1.75" maxlength="10" aria-describedby="menu-practice-feedback">
+<label for="menu-description">Short description</label>
+<input id="menu-description" type="text" value="A slice of chocolate cake." maxlength="140" aria-describedby="menu-practice-feedback">
+<label for="menu-image">Picture</label>
+<select id="menu-image"><option value="caramel-brownie.jpg">Chocolate cake</option><option value="hot-drink.jpg">Hot drink and biscuits</option></select>
+<p class="small">If you change the picture, adapt the name and description to match it.</p>
+</div>
+<div>
+<h4>Matching JavaScript fields</h4>
+<pre><code id="menu-practice-code">name: "Chocolate cake slice",
+price: 1.75,
+image: "images/caramel-brownie.jpg",
+description: "A slice of chocolate cake.",</code></pre>
+<p class="small">These are four fields from one item, not a whole record. Text has quotes; the price does not. The picture choice supplies a local image path.</p>
+</div>
+<div>
+<h4>Menu card preview</h4>
+<div class="menu-preview">
+<img id="menu-preview-image" src="../template/images/caramel-brownie.jpg" alt="Chocolate cake" width="320" height="160">
+<h4 id="menu-preview-name">Chocolate cake slice</h4>
+<p id="menu-preview-description">A slice of chocolate cake.</p>
+<p id="menu-preview-price" class="price">£1.75</p>
+</div>
+</div>
+</div>
+<p id="menu-practice-feedback" class="feedback" role="status">Change one value and compare the result.</p>
+<button type="button" class="secondary" id="menu-practice-reset">Reset example</button>
+</div>
+
+<h3>Now edit your own file</h3>
 <ol><li>Open <code>project/app.js</code> in VS Code. Find <code>MENU</code> with Ctrl+F.</li><li>Replace one item’s values with your research. Keep the property names, commas and brackets.</li><li>Save. Refresh <code>project/index.html</code> in your browser.</li><li>Check that card against your research. Then repeat for the other items.</li></ol>
+<p class="save">Change values inside an existing item. Keep its other fields and surrounding brackets. Use your own image filename in <code>images/</code>, including its extension; the file must be in <code>project/images</code>. Check that the name, description and picture agree.</p>
 
 <div class="flow">
 <div class="tile"><code>name</code> → heading<br><code>price</code> → £ display</div>
@@ -171,7 +256,7 @@ alergy_warning: []</code></pre>
 </main>
 
 <footer>
-<p>Your guide is for practice. Your booklet records your evidence.</p>
+<p>This guide is for practice. Your booklet records your evidence.</p>
 <button type="button" data-print>Print this guide</button>
 <p class="small">Closed help stays out of print. Open a help or extension panel before printing to include it. Practice inputs reset when this page reloads.</p>
 </footer>

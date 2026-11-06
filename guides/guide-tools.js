@@ -1,5 +1,79 @@
 /* Guide interactions teach concepts; they do not contain target challenge functions. */
 'use strict';
+
+// Guide 1: short practice only. No project files or stored answers are changed.
+const storagePractice = document.getElementById('storage-practice');
+if (storagePractice) {
+  const explanations = {
+    save: 'Save updates the file on disk. It does not create a Git checkpoint.',
+    commit: 'Commit records staged changes in local Git history. It is not a separate backup.',
+    backup: 'Backup keeps a separate safe copy using the college arrangements.'
+  };
+  const hints = {
+    save: 'Think about updating the file before the browser reads it.',
+    commit: 'Think about recording a working version with a message.',
+    backup: 'Think about what you could use if the original project folder was lost.'
+  };
+  storagePractice.querySelectorAll('[data-storage-answer]').forEach(select => {
+    select.addEventListener('change', () => {
+      const feedback = document.getElementById(select.id + '-feedback');
+      if (!select.value) { feedback.textContent = ''; return; }
+      feedback.textContent = select.value === select.dataset.storageAnswer
+        ? 'Yes. ' + explanations[select.value]
+        : 'Try again. ' + explanations[select.value] + ' ' + hints[select.dataset.storageAnswer];
+    });
+  });
+  storagePractice.hidden = false;
+}
+
+const menuPractice = document.getElementById('menu-practice');
+if (menuPractice) {
+  const name = document.getElementById('menu-name');
+  const price = document.getElementById('menu-price');
+  const description = document.getElementById('menu-description');
+  const picture = document.getElementById('menu-image');
+  const feedback = document.getElementById('menu-practice-feedback');
+  const pictures = { 'caramel-brownie.jpg': 'Chocolate cake', 'hot-drink.jpg': 'Hot drink and biscuits' };
+  function updateMenuPractice() {
+    const errors = [];
+    for (const [input, label] of [[name, 'name'], [description, 'description']]) {
+      const valid = input.value.trim().length > 0;
+      input.setAttribute('aria-invalid', String(!valid));
+      if (!valid) errors.push('Enter a ' + label + '.');
+    }
+    const priceText = price.value.trim();
+    const validPrice = /^\d+(?:\.\d{1,2})?$/.test(priceText) && Number.isFinite(Number(priceText));
+    price.setAttribute('aria-invalid', String(!validPrice));
+    if (!validPrice) errors.push('Use a price of 0 or more, with up to two decimal places, such as 2.30. Leave out £ and quotes.');
+    if (errors.length) {
+      feedback.textContent = errors.join(' ') + ' The code and card still show your last valid values.';
+      return;
+    }
+    const amount = Number(priceText).toFixed(2);
+    document.getElementById('menu-practice-code').textContent =
+      'name: ' + JSON.stringify(name.value.trim()) + ',\n' +
+      'price: ' + amount + ',\n' +
+      'image: ' + JSON.stringify('images/' + picture.value) + ',\n' +
+      'description: ' + JSON.stringify(description.value.trim()) + ',';
+    document.getElementById('menu-preview-name').textContent = name.value.trim();
+    document.getElementById('menu-preview-description').textContent = description.value.trim();
+    document.getElementById('menu-preview-price').textContent = '£' + amount;
+    const image = document.getElementById('menu-preview-image');
+    image.setAttribute('src', '../template/images/' + picture.value);
+    image.alt = pictures[picture.value];
+    feedback.textContent = 'Code and card updated. Did the part you predicted change? Your project files have not changed.';
+  }
+  [name, price, description].forEach(input => input.addEventListener('input', updateMenuPractice));
+  picture.addEventListener('change', updateMenuPractice);
+  document.getElementById('menu-practice-reset').addEventListener('click', () => {
+    [name, price, description].forEach(input => { input.value = input.defaultValue; });
+    picture.selectedIndex = 0;
+    updateMenuPractice();
+    feedback.textContent = 'Example reset. Predict what will change, then edit one value.';
+  });
+  menuPractice.hidden = false;
+}
+
 document.querySelectorAll('[data-print]').forEach(b => b.addEventListener('click', () => window.print()));
 document.querySelectorAll('[data-answer]').forEach(b => b.addEventListener('click', () => {
   document.getElementById(b.dataset.reply).textContent = b.dataset.answer === b.dataset.correct

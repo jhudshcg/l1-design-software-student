@@ -3,3 +3,29 @@
 textarea { font-family:Consolas,monospace; }
 
 @media print { .setup-identity { font-size:9.5pt; } }
+
+.practice-panel{margin:1rem 0;padding:1rem;border:1px solid #9bb1c4;border-radius:8px;background:#f4f8fc}
+.practice-panel h3{margin-top:0}.practice-panel h4{margin:.5rem 0}
+.practice-panel .feedback:empty{display:none}
+.menu-lab{display:grid;grid-template-columns:1fr 1.1fr 1fr;gap:1rem}
+.menu-lab>div{min-width:0}.menu-lab input,.menu-lab select{width:100%}
+.menu-preview{padding:.75rem;border:1px solid #9bb1c4;border-radius:8px;background:#fff;overflow-wrap:anywhere}
+.menu-preview img{display:block;width:100%;height:160px;object-fit:cover;border-radius:4px}
+.menu-preview .price{font-weight:bold;font-size:1.2rem}
+[aria-invalid=true]{border:2px solid #a22d20}
+@media(max-width:850px){.menu-lab{grid-template-columns:1fr}}
+@media print{
+  .guide-start{line-height:1.25}
+  .guide-start header{margin-bottom:4mm}
+  .guide-start section{break-inside:auto;padding:2.5mm;margin-bottom:2.5mm}
+  .guide-start p,.guide-start li{margin:1.2mm 0}
+  .guide-start ol,.guide-start ul{margin:2mm 0}
+  .guide-start .note,.guide-start .check{padding:2mm}
+  .guide-start .tile strong{font-size:12pt}
+  .guide-start .eyebrow{display:none}
+  .guide-start .wire{gap:1mm}
+  .guide-start .wire div{padding:1.5mm}
+  .guide-start h3{margin:3mm 0 1mm}
+  .guide-start h2,.guide-start h3{break-after:avoid}
+  .guide-start .flow,.guide-start .row,.guide-start pre{break-inside:avoid}
+}
